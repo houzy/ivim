@@ -84,7 +84,18 @@ au BufEnter *.org call org#SetOrgFileType()
 
 " NrrwRgn
 " open the narrowed window as a vertical split buffer
+" Use ,Space to toggle the highlight search
+" nnoremap <Leader><Space> :set hlsearch!<CR>
+" conflict with NrrwRgn
+" silent! nunmap <Leader><Space>
+" or
+nmap <F3> <Plug>NrrwrgnWinIncr
+xmap <F3> <Plug>NrrwrgnDo
 let g:nrrw_rgn_vert = 0
+vnoremap <leader>nr :NR<CR>
+
+" -> delimitMate
+let delimitMate_excluded_regions = "Comment"
 
 " emmet-vim To remap the default <C-Y> leader
 let g:user_emmet_leader_key='<C-Z>'
