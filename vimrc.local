@@ -15,6 +15,9 @@ set whichwrap-=l
 " set t_Co&
 " colorscheme ron
 
+autocmd BufWinLeave * silent! mkview " Make Vim save view (state) (folds, cursor, etc)
+autocmd BufWinEnter * silent! loadview " Make Vim load view (state) (folds, cursor, etc)
+
 NeoBundle 'vim-scripts/VisIncr'
 " an excellent calendar app, has the same command with calendar-vim
 "NeoBundle 'itchyny/calendar.vim'
@@ -28,6 +31,9 @@ NeoBundle 'vim-scripts/utl.vim'
 " vim orgmode: VimOrganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org call org#SetOrgFileType()
+
+" -> NERD Tree
+let g:NERDTreeWinSize=15
 
 " NrrwRgn
 " open the narrowed window as a vertical split buffer
