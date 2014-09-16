@@ -18,11 +18,10 @@ set showbreak&
 " set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
 set listchars=tab:›\ ,eol:¬,extends:❯,precedes:❮,nbsp:⌴,trail:⌴ " Change listchars
 set listchars-=eol:¬
+" autocmd remove
 autocmd! trailing InsertEnter,InsertLeave *
 
-autocmd BufWinLeave * silent! mkview " Make Vim save view (state) (folds, cursor, etc)
-autocmd BufWinEnter * silent! loadview " Make Vim load view (state) (folds, cursor, etc)
-
+NeoBundle 'vim-scripts/restore_view.vim'
 NeoBundle 'vim-scripts/VisIncr'
 " an excellent calendar app, has the same command with calendar-vim
 "NeoBundle 'itchyny/calendar.vim'
@@ -33,12 +32,17 @@ NeoBundle 'mattn/calendar-vim'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'vim-scripts/utl.vim'
 
+" restore_view.vim
+set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+" let g:skipview_files = ['*\.vim']
+
 " vim orgmode: VimOrganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org call org#SetOrgFileType()
 
 " -> NERD Tree
 let g:NERDTreeWinSize=15
+let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
 
 " NrrwRgn
 " open the narrowed window as a vertical split buffer
