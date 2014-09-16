@@ -16,6 +16,7 @@ set t_Co&
 colorscheme ron
 set showbreak&
 set listchars-=eol:¬
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
 autocmd BufWinLeave * silent! mkview " Make Vim save view (state) (folds, cursor, etc)
 autocmd BufWinEnter * silent! loadview " Make Vim load view (state) (folds, cursor, etc)
