@@ -12,8 +12,8 @@ set virtualedit&            " Reset option to its default value.
 set whichwrap-=h
 set whichwrap-=l
 
-" set t_Co&
-" colorscheme ron
+set t_Co&
+colorscheme ron
 
 autocmd BufWinLeave * silent! mkview " Make Vim save view (state) (folds, cursor, etc)
 autocmd BufWinEnter * silent! loadview " Make Vim load view (state) (folds, cursor, etc)
