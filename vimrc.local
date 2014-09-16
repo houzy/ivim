@@ -14,6 +14,8 @@ set whichwrap-=l
 
 set t_Co&
 colorscheme ron
+set showbreak&
+set listchars-=eol:¬
 
 autocmd BufWinLeave * silent! mkview " Make Vim save view (state) (folds, cursor, etc)
 autocmd BufWinEnter * silent! loadview " Make Vim load view (state) (folds, cursor, etc)
