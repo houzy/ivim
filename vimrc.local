@@ -21,6 +21,7 @@ set listchars-=eol:¬
 " autocmd remove
 autocmd! trailing InsertEnter,InsertLeave *
 
+NeoBundle 'tpope/vim-ragtag'
 NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
 NeoBundle 'vim-scripts/restore_view.vim'
 NeoBundle 'vim-scripts/VisIncr'
@@ -32,6 +33,9 @@ NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'vim-scripts/utl.vim'
+
+" vim-ragtag
+let g:ragtag_global_maps = 1
 
 " GoldenView.Vim
 let g:goldenview__enable_default_mapping = 0
