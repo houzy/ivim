@@ -23,6 +23,7 @@ set listchars-=eol:¬
 " autocmd remove
 autocmd! trailing InsertEnter,InsertLeave *
 
+NeoBundle 'houzy/jeffy-plugins'
 NeoBundle 'tpope/vim-ragtag'
 NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
 NeoBundle 'vim-scripts/restore_view.vim'
@@ -35,6 +36,9 @@ NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'vim-scripts/utl.vim'
+
+" jeffy-plugins
+let g:jeffy_plugins_enable_colors = 0
 
 " vim-ragtag
 let g:ragtag_global_maps = 1
@@ -98,6 +102,16 @@ let g:ivim_bundle_groups=['ui', 'enhance', 'move', 'navigate',
 
 " ctrl+c default function: leave insert mode, similar to esc
 vmap <C-C> "+y
+
+" cscope
+nmap <leader>ss :cs find s <C-R>=expand("<cword>")<cr><cr>
+nmap <leader>sg :cs find g <C-R>=expand("<cword>")<cr><cr>
+nmap <leader>sc :cs find c <C-R>=expand("<cword>")<cr><cr>
+nmap <leader>st :cs find t <C-R>=expand("<cword>")<cr><cr>
+nmap <leader>se :cs find e <C-R>=expand("<cword>")<cr><cr>
+nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<cr><cr>
+nmap <leader>si :cs find i <C-R>=expand("<cfile>")<cr><cr>
+nmap <leader>sd :cs find d <C-R>=expand("<cword>")<cr><cr>
 
 " syntastic
 let g:syntastic_check_on_open = 0
