@@ -28,6 +28,8 @@ exec 'set viewdir='.&viewdir.'/'
 exec 'set directory='.&directory.'/'
 exec 'set undodir='.&undodir.'/'
 
+set tags+=~/ctagsFile/systags
+
 NeoBundle 'houzy/jeffy-plugins'
 NeoBundle 'tpope/vim-ragtag'
 NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
