@@ -32,6 +32,7 @@ set tags+=~/ctagsFile/systags
 
 " do it later
 "NeoBundle 'hewes/unite-gtags'
+"NeoBundle 'shibuyanorailgun/gtags.vim'
 
 NeoBundle 'houzy/jeffy-plugins'
 NeoBundle 'tpope/vim-ragtag'
