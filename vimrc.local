@@ -243,11 +243,22 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 4
+let g:syntastic_auto_jump = 2
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_enable_balloons = 1
 let g:syntastic_mode_map = { 'passive_filetypes': ['scss', 'slim'] }
 let g:syntastic_python_checkers = ['pyflakes', 'pylint']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+" Turn off some stupid pylint checks for syntastic + Python
+" -E: Just show errors
+" -d: disable
+" pylint --list-msgs: show all codes
+let g:syntastic_python_pylint_args="-E"
+" or
+let g:syntastic_python_pylint_args="-d C0103,C0111,C0301,C0326"
+" the following two lines setting will silence all warnings, except for the ones produced by "pylint"
+"let g:syntastic_quiet_messages = { "level": "warnings" }
+"let g:syntastic_python_pylint_quiet_messages = { "level" : [] }
 "set statusline+=%{SyntasticStatuslineFlag()}
 "let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 "let g:syntastic_enable_highlighting = 0
