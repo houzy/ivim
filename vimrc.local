@@ -240,6 +240,25 @@ nmap <leader>sd :cs find d <C-R>=expand("<cword>")<cr><cr>
 
 " syntastic
 let g:syntastic_check_on_open = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 4
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_enable_balloons = 1
+let g:syntastic_mode_map = { 'passive_filetypes': ['scss', 'slim'] }
+let g:syntastic_python_checkers = ['pyflakes', 'pylint']
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+"set statusline+=%{SyntasticStatuslineFlag()}
+"let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+"let g:syntastic_enable_highlighting = 0
+"let g:syntastic_cpp_include_dirs = ['/usr/include/']
+"let g:syntastic_cpp_remove_include_errors = 1
+"let g:syntastic_cpp_check_header = 1
+"let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
+
+" goto next or previous error
+nmap <leader>jj :lnext<cr>
+nmap <leader>jk :lprev<cr>
 
 " }
