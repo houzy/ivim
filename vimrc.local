@@ -48,6 +48,14 @@ NeoBundle 'mattn/calendar-vim'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'vim-scripts/utl.vim'
 
+" Unite.vim
+" unite#custom#default_action({kind}, {default-action})
+" Changes the default action of {kind} into {default-action}.
+" You may specify multiple {kind} with the separator ",".
+" Open file in new tab, instead of in new buffer.
+call unite#custom#default_action('file', 'tabopen')
+
+" neocomplete or neocomplcache
 " Install vim-gnome will provide vim-lua support
 if has('lua')
     " neocomplete {
