@@ -14,7 +14,7 @@ set whichwrap-=l
 
 set tabstop=4                   " An indentation every four columns
 
-set t_Co&
+"set t_Co&
 colorscheme ron
 set showbreak&
 " set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
