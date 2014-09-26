@@ -14,14 +14,18 @@ set whichwrap-=l
 
 set tabstop=4                   " An indentation every four columns
 
-"set t_Co&
-colorscheme ron
 set showbreak&
 " set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
 set listchars=tab:›\ ,eol:¬,extends:❯,precedes:❮,nbsp:⌴,trail:⌴ " Change listchars
 set listchars-=eol:¬
 " autocmd remove
 autocmd! trailing InsertEnter,InsertLeave *
+
+"set t_Co&
+set term=gnome-256color
+colorscheme ron
+"colorscheme desert
+"colorscheme hybrid
 
 exec 'set backupdir='.&backupdir.'/'
 exec 'set viewdir='.&viewdir.'/'
