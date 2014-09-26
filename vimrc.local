@@ -25,11 +25,16 @@ autocmd! trailing InsertEnter,InsertLeave *
 colorscheme ron
 "colorscheme desert
 "colorscheme hybrid
-" change tab bg: 235->16
+" change tab bg: 235->16, set in vimrc
 autocmd! VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
 autocmd! VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=16
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=16
+" change gitgutter SignColumn Same as line number column
+highlight clear SignColumn
+" When non-zero, a column with the specified width is shown at the side
+" of the window which indicates open and closed folds.
+set foldcolumn=0 " Set fold column to 1 in vimrc
 
 exec 'set backupdir='.&backupdir.'/'
 exec 'set viewdir='.&viewdir.'/'
