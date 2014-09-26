@@ -22,10 +22,14 @@ set listchars-=eol:¬
 autocmd! trailing InsertEnter,InsertLeave *
 
 "set t_Co&
-set term=gnome-256color
 colorscheme ron
 "colorscheme desert
 "colorscheme hybrid
+" change tab bg: 235->16
+autocmd! VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
+autocmd! VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=16
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=16
 
 exec 'set backupdir='.&backupdir.'/'
 exec 'set viewdir='.&viewdir.'/'
@@ -34,10 +38,11 @@ exec 'set undodir='.&undodir.'/'
 
 set tags+=~/ctagsFile/systags
 
-" do it later
+" TODO
 "NeoBundle 'hewes/unite-gtags'
 "NeoBundle 'shibuyanorailgun/gtags.vim'
 
+NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'houzy/jeffy-plugins'
 NeoBundle 'tpope/vim-ragtag'
 NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
@@ -51,6 +56,13 @@ NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'vim-scripts/utl.vim'
+
+" xterm-color-table.vim
+" Provides command :XtermColorTable, as well as variants for different splits
+" Xterm numbers on the left, equivalent RGB values on the right
+" Press # to yank current color (shortcut for yiw)
+" Press t to toggle RGB text visibility
+" Press f to set RGB text to current color
 
 " Unite.vim
 " unite#custom#default_action({kind}, {default-action})
