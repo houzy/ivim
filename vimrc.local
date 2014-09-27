@@ -15,6 +15,7 @@ set whichwrap-=l
 set copyindent
 set smarttab
 set tabstop=4               " An indentation every four columns
+"set cinoptions=:0,l1,g0,t0,(0,(s    " C kind language indent options
 
 set showbreak&
 " set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
