@@ -12,7 +12,9 @@ set virtualedit&            " Reset option to its default value.
 set whichwrap-=h
 set whichwrap-=l
 
-set tabstop=4                   " An indentation every four columns
+set copyindent
+set smarttab
+set tabstop=4               " An indentation every four columns
 
 set showbreak&
 " set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
