@@ -453,6 +453,9 @@ highlight clear SignColumn
 nmap <silent> <Leader>jg :GitGutterLineHighlightsToggle<CR>
 let g:gitgutter_highlight_lines = 1
 
+" Toggle paste mode
+set pastetoggle=<leader>p
+
 " }}}
 
 " vim:set et fdm=marker:
