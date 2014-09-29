@@ -1,4 +1,27 @@
-" local settings {
+" NeoBundle settings {{{
+
+" TODO
+"NeoBundle 'hewes/unite-gtags'
+"NeoBundle 'shibuyanorailgun/gtags.vim'
+
+NeoBundle 'guns/xterm-color-table.vim'
+NeoBundle 'houzy/jeffy-plugins'
+NeoBundle 'tpope/vim-ragtag'
+NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
+NeoBundle 'vim-scripts/restore_view.vim'
+NeoBundle 'vim-scripts/VisIncr'
+" an excellent calendar app, has the same command with calendar-vim
+"NeoBundle 'itchyny/calendar.vim'
+
+" orgmode
+NeoBundle 'hsitz/VimOrganizer'
+NeoBundle 'mattn/calendar-vim'
+NeoBundle 'chrisbra/NrrwRgn'
+NeoBundle 'vim-scripts/utl.vim'
+
+" }}}
+
+" local settings {{{
 
 set encoding=utf-8
 set termencoding=utf-8
@@ -24,12 +47,28 @@ set listchars-=eol:¬
 " autocmd remove
 autocmd! trailing InsertEnter,InsertLeave *
 
-" gruvbox color scheme
-NeoBundle 'morhetz/gruvbox'
+" When non-zero, a column with the specified width is shown at the side
+" of the window which indicates open and closed folds.
+set foldcolumn=0 " Set fold column to 1 in vimrc
+
+" using full path: append one / to path
+exec 'set backupdir='.&backupdir.'/'
+exec 'set viewdir='.&viewdir.'/'
+exec 'set directory='.&directory.'/'
+exec 'set undodir='.&undodir.'/'
+
+" add systags
+set tags+=~/ctagsFile/systags
+
+" }}}
+
+" color settings {{{
 
 let using_light_colorscheme = 0
 
 if using_light_colorscheme
+    " gruvbox color scheme
+    NeoBundle 'morhetz/gruvbox'
     " gruvbox
     set background=light   " Setting light mode
     let g:gruvbox_hls_cursor='orange'
@@ -52,53 +91,10 @@ else
     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=16
 endif
 
-" When non-zero, a column with the specified width is shown at the side
-" of the window which indicates open and closed folds.
-set foldcolumn=0 " Set fold column to 1 in vimrc
+" }}}
 
-" using full path: append one / to path
-exec 'set backupdir='.&backupdir.'/'
-exec 'set viewdir='.&viewdir.'/'
-exec 'set directory='.&directory.'/'
-exec 'set undodir='.&undodir.'/'
+" neocomplete or neocomplcache {{{
 
-" add systags
-set tags+=~/ctagsFile/systags
-
-" TODO
-"NeoBundle 'hewes/unite-gtags'
-"NeoBundle 'shibuyanorailgun/gtags.vim'
-
-NeoBundle 'guns/xterm-color-table.vim'
-NeoBundle 'houzy/jeffy-plugins'
-NeoBundle 'tpope/vim-ragtag'
-NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
-NeoBundle 'vim-scripts/restore_view.vim'
-NeoBundle 'vim-scripts/VisIncr'
-" an excellent calendar app, has the same command with calendar-vim
-"NeoBundle 'itchyny/calendar.vim'
-
-" orgmode
-NeoBundle 'hsitz/VimOrganizer'
-NeoBundle 'mattn/calendar-vim'
-NeoBundle 'chrisbra/NrrwRgn'
-NeoBundle 'vim-scripts/utl.vim'
-
-" xterm-color-table.vim
-" Provides command :XtermColorTable, as well as variants for different splits
-" Xterm numbers on the left, equivalent RGB values on the right
-" Press # to yank current color (shortcut for yiw)
-" Press t to toggle RGB text visibility
-" Press f to set RGB text to current color
-
-" Unite.vim
-" unite#custom#default_action({kind}, {default-action})
-" Changes the default action of {kind} into {default-action}.
-" You may specify multiple {kind} with the separator ",".
-" Open file in new tab, instead of in new buffer.
-call unite#custom#default_action('file', 'tabopen')
-
-" neocomplete or neocomplcache
 " Install vim-gnome will provide vim-lua support
 if has('lua')
     " neocomplete {
@@ -315,6 +311,24 @@ else
     " }
 endif
 
+" }}}
+
+" other plugins setting {{{
+
+" xterm-color-table.vim
+" Provides command :XtermColorTable, as well as variants for different splits
+" Xterm numbers on the left, equivalent RGB values on the right
+" Press # to yank current color (shortcut for yiw)
+" Press t to toggle RGB text visibility
+" Press f to set RGB text to current color
+
+" Unite.vim
+" unite#custom#default_action({kind}, {default-action})
+" Changes the default action of {kind} into {default-action}.
+" You may specify multiple {kind} with the separator ",".
+" Open file in new tab, instead of in new buffer.
+call unite#custom#default_action('file', 'tabopen')
+
 " jeffy-plugins
 let g:jeffy_plugins_enable_colors = 0
 
@@ -439,4 +453,6 @@ highlight clear SignColumn
 nmap <silent> <Leader>jg :GitGutterLineHighlightsToggle<CR>
 let g:gitgutter_highlight_lines = 1
 
-" }
+" }}}
+
+" vim:set et fdm=marker:
