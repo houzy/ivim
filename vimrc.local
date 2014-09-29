@@ -346,7 +346,7 @@ vnoremap <leader>nr :NR<CR>
 let delimitMate_excluded_regions = "Comment"
 
 " emmet-vim To remap the default <C-Y> leader
-let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_leader_key='<S-Z>'
 
 " ivim user setting
 let g:ivim_user='houzy' " User name
