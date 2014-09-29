@@ -24,21 +24,41 @@ set listchars-=eol:¬
 " autocmd remove
 autocmd! trailing InsertEnter,InsertLeave *
 
-"set t_Co&
-colorscheme ron
-"colorscheme desert
-"colorscheme hybrid
-" change tab bg: 235->16, set in vimrc
-autocmd! VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
-autocmd! VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=16
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=16
+" gruvbox color scheme
+NeoBundle 'morhetz/gruvbox'
+
+let using_light_colorscheme = 0
+
+if using_light_colorscheme
+    " gruvbox
+    set background=light   " Setting light mode
+    let g:gruvbox_hls_cursor='orange'
+    autocmd! indent_guides VimEnter,Colorscheme *
+    let g:indent_guides_auto_colors=1
+    if !has("gui_running")
+        let g:gruvbox_italic=0
+    endif
+    colorscheme gruvbox
+else
+    "set t_Co&
+    set background=dark    " Setting dark mode
+    colorscheme ron
+    "colorscheme desert
+    "colorscheme hybrid
+    " change tab bg: 235->16, set in vimrc
+    autocmd! indent_guides VimEnter,Colorscheme *
+    let g:indent_guides_auto_colors=0
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=16
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=16
+endif
+
 " change gitgutter SignColumn Same as line number column
 highlight clear SignColumn
 " When non-zero, a column with the specified width is shown at the side
 " of the window which indicates open and closed folds.
 set foldcolumn=0 " Set fold column to 1 in vimrc
 
+" using full path: append one / to path
 exec 'set backupdir='.&backupdir.'/'
 exec 'set viewdir='.&viewdir.'/'
 exec 'set directory='.&directory.'/'
