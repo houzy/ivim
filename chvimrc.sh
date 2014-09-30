@@ -47,6 +47,10 @@ create_symlinks() {
         ln -sf "$endpath/vimrc.local" "$HOME/.vimrc.local"
     fi
 
+    if [ -e "$endpath/vimrc.ivim.local" ]; then
+        ln -sf "$endpath/vimrc.ivim.local" "$HOME/.vimrc.ivim.local"
+    fi
+
     if [ -e "$endpath/gvimrc.local" ]; then
         ln -sf "$endpath/gvimrc.local" "$HOME/.gvimrc.local"
     fi
@@ -69,6 +73,7 @@ function clean_symlinks() {
     rm -f  "$HOME/.vim"
 
     rm -f "$HOME/.vimrc.local"
+    rm -f "$HOME/.vimrc.ivim.local"
     rm -f "$HOME/.vimrc.before.local"
     rm -f "$HOME/.vimrc.bundles.local"
     rm -f "$HOME/.vimrc.fork"

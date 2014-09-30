@@ -65,6 +65,7 @@ set tags+=~/ctagsFile/systags
 " color settings {{{
 
 let using_light_colorscheme = 0
+let using_dark_colorscheme = 0
 
 if using_light_colorscheme
     " gruvbox color scheme
@@ -72,20 +73,26 @@ if using_light_colorscheme
     " gruvbox
     set background=light   " Setting light mode
     let g:gruvbox_hls_cursor='orange'
-    autocmd! indent_guides VimEnter,Colorscheme *
+    " add this line to vimrc.ivim.local let g:ivim_default_scheme=0
+    if g:ivim_default_scheme
+        echo 'add let g:ivim_default_scheme = 0 to vimrc.ivim.local'
+    endif
     let g:indent_guides_auto_colors=1
     if !has("gui_running")
         let g:gruvbox_italic=0
     endif
     colorscheme gruvbox
-else
+elseif using_dark_colorscheme
     "set t_Co&
     set background=dark    " Setting dark mode
     colorscheme ron
     "colorscheme desert
     "colorscheme hybrid
     " change tab bg: 235->16, set in vimrc
-    autocmd! indent_guides VimEnter,Colorscheme *
+    " add this line to vimrc.ivim.local let g:ivim_default_scheme=0
+    if g:ivim_default_scheme
+        echo 'add let g:ivim_default_scheme = 0 to vimrc.ivim.local'
+    endif
     let g:indent_guides_auto_colors=0
     autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=16
     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=16
@@ -380,17 +387,6 @@ let delimitMate_excluded_regions = "Comment"
 
 " emmet-vim To remap the default <C-Y> leader
 let g:user_emmet_leader_key='<S-Z>'
-
-" ivim user setting
-let g:ivim_user='houzy' " User name
-let g:ivim_email='h-zy2008@hotmail.com' " User email
-let g:ivim_github='https://github.com/houzy' " User github
-" ivim UI setting
-let g:ivim_fancy_font=1 " Enable using fancy font
-let g:ivim_show_number=1 " Enable showing number
-" ivim plugin setting
-let g:ivim_bundle_groups=['ui', 'enhance', 'move', 'navigate',
-            \'complete', 'compile', 'git', 'language']
 
 " ctrl+c default function: leave insert mode, similar to esc
 vmap <C-C> "+y
