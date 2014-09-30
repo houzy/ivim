@@ -40,17 +40,6 @@ set smarttab
 set tabstop=4               " An indentation every four columns
 "set cinoptions=:0,l1,g0,t0,(0,(s    " C kind language indent options
 
-set showbreak&
-" set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
-set listchars=tab:›\ ,eol:¬,extends:❯,precedes:❮,nbsp:⌴,trail:⌴ " Change listchars
-set listchars-=eol:¬
-" autocmd remove
-autocmd! trailing InsertEnter,InsertLeave *
-
-" When non-zero, a column with the specified width is shown at the side
-" of the window which indicates open and closed folds.
-set foldcolumn=0 " Set fold column to 1 in vimrc
-
 " using full path: append one / to path
 exec 'set backupdir='.&backupdir.'/'
 exec 'set viewdir='.&viewdir.'/'
@@ -59,6 +48,25 @@ exec 'set undodir='.&undodir.'/'
 
 " add systags
 set tags+=~/ctagsFile/systags
+
+" }}}
+
+" listchars setting {{{
+
+let change_listchars_setting = 1
+
+if change_listchars_setting
+    set showbreak&
+    " set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
+    set listchars=tab:›\ ,eol:¬,extends:❯,precedes:❮,nbsp:⌴,trail:⌴ " Change listchars
+    set listchars-=eol:¬
+    " autocmd remove
+    autocmd! trailing InsertEnter,InsertLeave *
+
+    " When non-zero, a column with the specified width is shown at the side
+    " of the window which indicates open and closed folds.
+    set foldcolumn=0 " Set fold column to 1 in vimrc
+endif
 
 " }}}
 

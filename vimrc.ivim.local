@@ -15,3 +15,5 @@ let g:ivim_bundle_groups=['ui', 'enhance', 'move', 'navigate',
             \'complete', 'compile', 'git', 'language']
 
 " }}}
+
+" vim:set et fdm=marker:
