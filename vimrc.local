@@ -49,6 +49,11 @@ exec 'set undodir='.&undodir.'/'
 " add systags
 set tags+=~/ctagsFile/systags
 
+" In vim, <tab> is the same as <c+i>, which is used to jump previous location in
+" jumplist.
+" Recover it.
+unmap <Tab>
+
 " }}}
 
 " listchars setting {{{
