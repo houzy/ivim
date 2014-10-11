@@ -19,6 +19,9 @@ NeoBundle 'mattn/calendar-vim'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'vim-scripts/utl.vim'
 
+" gruvbox color scheme
+NeoBundle 'morhetz/gruvbox'
+
 " }}}
 
 " local settings {{{
@@ -81,8 +84,6 @@ let using_light_colorscheme = 0
 let using_dark_colorscheme = 0
 
 if using_light_colorscheme
-    " gruvbox color scheme
-    NeoBundle 'morhetz/gruvbox'
     " gruvbox
     set background=light   " Setting light mode
     let g:gruvbox_hls_cursor='orange'
