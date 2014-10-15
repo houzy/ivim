@@ -381,6 +381,7 @@ set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatib
 " vim orgmode: VimOrganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org call org#SetOrgFileType()
+au BufEnter *.org set wrap
 
 " -> NERD Tree
 let g:NERDTreeWinSize=15
