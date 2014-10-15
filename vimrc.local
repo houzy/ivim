@@ -38,6 +38,8 @@ set virtualedit&            " Reset option to its default value.
 set whichwrap-=h
 set whichwrap-=l
 
+set textwidth=0             " do not wrap words (insert)
+
 set copyindent
 set smarttab
 set tabstop=4               " An indentation every four columns
