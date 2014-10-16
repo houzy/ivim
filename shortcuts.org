@@ -6,6 +6,9 @@
 | <LocalLeader><Space> | Map \<Space> to commenting           |
 | <Leader>jg           | Toggle GitGutterLineHighlightsToggle |
 
+* goyo.vim
+  TODO
+
 * NERD Commenter
   Most of the following mappings are for normal/visual mode only.
   The |NERDComInsertComment| mapping is for insert mode only.
