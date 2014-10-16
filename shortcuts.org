@@ -1,9 +1,10 @@
 * Custom setting
-| Shortcut             | Action                     |
-|----------------------+----------------------------|
-| <leader>p            | Toggles paste mode.        |
-| :g/^$/d              | Delete blank lines.        |
-| <LocalLeader><Space> | Map \<Space> to commenting |
+| Shortcut             | Action                               |
+|----------------------+--------------------------------------|
+| <leader>p            | Toggles paste mode.                  |
+| :g/^$/d              | Delete blank lines.                  |
+| <LocalLeader><Space> | Map \<Space> to commenting           |
+| <Leader>jg           | Toggle GitGutterLineHighlightsToggle |
 
 * NERD Commenter
   Most of the following mappings are for normal/visual mode only.
@@ -11,6 +12,7 @@
 
 | Shortcut             | Action                                                                        |
 |----------------------+-------------------------------------------------------------------------------|
+| <LocalLeader><Space> | Map \<Space> to commenting                                                    |
 | [count]<leader>cc    | NERDComComment: Comment out the current line or text selected in visual mode. |
 | [count]<leader>cn    | NERDComNestedComment: Same as <leader>cc but forces nesting.                  |
 | [count]<leader>c     | NERDComToggleComment: Toggles the comment state of the selected line(s).      |
@@ -37,8 +39,41 @@
 | [count]<leader>cu    | NERDComUncommentLine: Uncomments the selected line(s).                        |
 
 * limelight
-:Limelight
-:Limelight!
+| Shortcut              | Action             |
+|-----------------------+--------------------|
+| :Limelight[0.0~1.0]   | Turn Limelight on  |
+| :Limelight!           | Turn Limelight off |
+| :Limelight!![0.0~1.0] | Toggle Limelight   |
 
 * gitgutter
+| Shortcut   | Action                               |
+|------------+--------------------------------------|
+| <Leader>jg | Toggle GitGutterLineHighlightsToggle |
+| ]c         | jump to next hunk (change)           |
+| [c         | jump to previous hunk (change)       |
+| <Leader>hs | stage the hunk                       |
+| <Leader>hr | revert it                            |
+| <Leader>hp | preview a hunk's changes             |
+
+* VimOrganizer
+| Shortcut                  | Action               |
+|---------------------------+----------------------|
+| :OrgTableDashboard or ,b. | Create or edit table |
+
+* vim-pasta
+  This plugin remaps p and P (put command) in normal and visual mode to do context aware pasting. What it means is that indentation of pasted text is adjusted properly to match indentation of surrounding code.
+  Basically it opens new, properly indented line (with o or O) in the place you're pasting to then it pastes the text with ]p. The result is nicely indented code with relative indentation between pasted lines preserved.
+  注意：在粘贴代码时出现一些调整，应该是这个插件的原因。
+
+| Shortcut | Action                     |
+|----------+----------------------------|
+| p or P   | This plugin remaps p and P |
+
+To black-list some filetypes put following in your .vimrc:
+  let g:pasta_disabled_filetypes = ['python', 'coffee', 'yaml']
+To white-list some filetypes put following in your .vimrc:
+  let g:pasta_enabled_filetypes = ['ruby', 'javascript', 'css', 'sh']
+If you don't want pasta to override default p and P mappings you can change it like this:
+  let g:pasta_paste_before_mapping = ',P'
+  let g:pasta_paste_after_mapping = ',p'
 
