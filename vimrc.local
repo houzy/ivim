@@ -4,6 +4,7 @@
 "NeoBundle 'hewes/unite-gtags'
 "NeoBundle 'shibuyanorailgun/gtags.vim'
 
+NeoBundle 'mbbill/fencview' " Enhance fileencoding detect
 NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'houzy/jeffy-plugins'
 NeoBundle 'tpope/vim-ragtag'
