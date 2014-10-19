@@ -9,6 +9,17 @@
 * goyo.vim
   TODO
 
+* Unite
+| Shortcut | Action                                                                           |
+|----------+----------------------------------------------------------------------------------|
+| <Space>f | <C-U>Unite -start-insert -auto-resize -buffer-name=files file_rec/async<CR><C-U> |
+| <Space>y | <C-U>Unite -start-insert -buffer-name=yanks history/yank<CR>                     |
+| <Space>l | <C-U>Unite -start-insert -auto-resize -buffer-name=line line<CR>                 |
+| <Space>o | <C-U>Unite -auto-resize -buffer-name=outline outline<CR>                         |
+| <Space>b | <C-U>Unite -quick-match buffer<CR>                                               |
+| <Space>t | <C-U>Unite -quick-match tab<CR>                                                  |
+| <Space>/ | <C-U>Unite -auto-resize -buffer-name=search grep:.<CR>                           |
+
 * NERD Commenter
   Most of the following mappings are for normal/visual mode only.
   The |NERDComInsertComment| mapping is for insert mode only.
