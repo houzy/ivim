@@ -12,6 +12,7 @@
 | <Leader><Space>      | :set hlsearch!<CR>. Toggle the highlight search                 |
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
 | <Leader>n            | :set relativenumber!<CR>. Toggle relativenumber                 |
+| :verbose set var?    | Debug some variables                                            |
 autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
 
 * Key Mapping
