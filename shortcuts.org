@@ -1,10 +1,171 @@
 * Custom setting
-| Shortcut             | Action                               |
-|----------------------+--------------------------------------|
-| <leader>p            | Toggles paste mode.                  |
-| :g/^$/d              | Delete blank lines.                  |
-| <LocalLeader><Space> | Map \<Space> to commenting           |
-| <Leader>jg           | Toggle GitGutterLineHighlightsToggle |
+| Shortcut             | Action                                                          |
+|----------------------+-----------------------------------------------------------------|
+| <leader>p            | Toggles paste mode.                                             |
+| :g/^$/d              | Delete blank lines.                                             |
+| <LocalLeader><Space> | Map \<Space> to commenting                                      |
+| <Leader>jg           | Toggle GitGutterLineHighlightsToggle                            |
+| <Leader>ji           | Toggle vim-indent-guides                                        |
+| <Leader>jj           | goto next error                                                 |
+| <Leader>jk           | goto previous error                                             |
+| <C-C>                | "+y. ctrl+c default function: leave insert mode, similar to esc |
+| <Leader><Space>      | :set hlsearch!<CR>. Toggle the highlight search                 |
+| <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
+| <Leader>n            | :set relativenumber!<CR>. Toggle relativenumber                 |
+autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
+
+* Key Mapping
+** Make j and k work the way you expect
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+** Navigation between windows
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+
+** Same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+
+** Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+** Repeat last substitution, including flags, with &.
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
+
+** Keep the cursor in place while joining lines
+nnoremap J mzJ`z
+
+** Select entire buffer
+nnoremap vaa ggvGg_
+
+** Strip all trailing whitespace in the current file
+nnoremap <Leader>q :%s/\s\+$//<CR>:let @/=''<CR>
+
+** Modify all the indents
+nnoremap \= gg=G
+
+** See the differences between the current buffer and the file it was loaded from
+command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+            \ | diffthis | wincmd p | diffthis
+
+** Only have cursorline in current window and in normal window
+autocmd WinLeave * set nocursorline
+autocmd WinEnter * set cursorline
+autocmd InsertEnter * set nocursorline
+autocmd InsertLeave * set cursorline
+
+* Search Related
+** settings
+set ignorecase " Case insensitive search
+set smartcase " Case sensitive when uc present
+set hlsearch " Highlight search terms
+set incsearch " Find as you type search
+set gdefault " turn on g flag
+
+** Use sane regexes
+nnoremap / /\v
+vnoremap / /\v
+cnoremap s/ s/\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+cnoremap s? s?\v
+
+** Keep search matches in the middle of the window
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap * *zzzv
+nnoremap # #zzzv
+nnoremap g* g*zzzv
+nnoremap g# g#zzzv
+
+** Visual search mappings
+function! s:VSetSearch()
+    let temp=@@
+    normal! gvy
+    let @/='\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    let @@=temp
+endfunction
+vnoremap * :<C-U>call <SID>VSetSearch()<CR>//<CR>
+vnoremap # :<C-U>call <SID>VSetSearch()<CR>??<CR>
+
+** Use ,Space to toggle the highlight search
+nnoremap <Leader><Space> :set hlsearch!<CR>
+
+* Fold Related
+** settings
+set foldlevelstart=0 " Start with all folds closed
+set foldcolumn=1 " Set fold column
+
+** Space to toggle and create folds.
+nnoremap <silent> <Space> @=(foldlevel('.') ? 'za' : '\<Space>')<CR>
+vnoremap <Space> zf
+
+** Set foldtext
+function! MyFoldText()
+    let line=getline(v:foldstart)
+    let nucolwidth=&foldcolumn+&number*&numberwidth
+    let windowwidth=winwidth(0)-nucolwidth-3
+    let foldedlinecount=v:foldend-v:foldstart+1
+    let onetab=strpart('          ', 0, &tabstop)
+    let line=substitute(line, '\t', onetab, 'g')
+    let line=strpart(line, 0, windowwidth-2-len(foldedlinecount))
+    let fillcharcount=windowwidth-len(line)-len(foldedlinecount)
+    return line.'…'.repeat(' ',fillcharcount).foldedlinecount.'L'.' '
+endfunction
+set foldtext=MyFoldText()
+
+* File Type Specific Setting
+** QuickFix
+augroup ft_quickfix
+    autocmd!
+    autocmd filetype qf setlocal nolist nocursorline nowrap textwidth=0
+augroup END
+
+** Markdown
+augroup ft_markdown
+    autocmd!
+    " Use <localLeader>1/2/3/4/5/6 to add headings
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>1 I# <ESC>
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>2 I## <ESC>
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>3 I### <ESC>
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>4 I#### <ESC>
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>5 I##### <ESC>
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>6 I###### <ESC>
+    " Use <LocalLeader>b to add blockquotes in normal and visual mode
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>b I> <ESC>
+    autocmd filetype markdown vnoremap <buffer> <LocalLeader>b :s/^/> /<CR>
+    " Use <localLeader>ul and <localLeader>ol to add list symbols in visual mode
+    autocmd filetype markdown vnoremap <buffer> <LocalLeader>ul :s/^/* /<CR>
+    autocmd filetype markdown vnoremap <buffer> <LocalLeader>ol :s/^/\=(line(".")-line("'<")+1).'. '/<CR>
+    " Use <localLeader>e1/2/3 to add emphasis symbols
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>e1 I*<ESC>A*<ESC>
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>e2 I**<ESC>A**<ESC>
+    autocmd filetype markdown nnoremap <buffer> <LocalLeader>e3 I***<ESC>A***<ESC>
+    autocmd filetype markdown vnoremap <buffer> <LocalLeader>e1 :s/\%V\(.*\)\%V/\*\1\*/<CR>
+    autocmd filetype markdown vnoremap <buffer> <LocalLeader>e2 :s/\%V\(.*\)\%V/\*\*\1\*\*/<CR>
+    autocmd filetype markdown vnoremap <buffer> <LocalLeader>e3 :s/\%V\(.*\)\%V/\*\*\*\1\*\*\*/<CR>
+    " Turn on spell
+    autocmd filetype markdown setlocal spell
+augroup END
+
+** HTML
+augroup ft_html
+    autocmd!
+    autocmd filetype html setlocal spell " Turn on spell
+augroup END
+
+** LESS
+augroup ft_less
+    autocmd!
+    autocmd filetype less nnoremap <buffer> <Leader>r :w <BAR> !lessc % > %:t:r.css<CR><Space>
+augroup END
 
 * goyo.vim
   TODO
@@ -19,6 +180,73 @@
 | <Space>b | <C-U>Unite -quick-match buffer<CR>                                               |
 | <Space>t | <C-U>Unite -quick-match tab<CR>                                                  |
 | <Space>/ | <C-U>Unite -auto-resize -buffer-name=search grep:.<CR>                           |
+function! s:unite_settings() " Use ESC to exit, and use C-J and C-K to move
+        nmap <buffer> <ESC> <plug>(unite_exit)
+        imap <buffer> <ESC> <plug>(unite_exit)
+        imap <buffer> <C-J> <Plug>(unite_select_next_line)
+        imap <buffer> <C-K> <Plug>(unite_select_previous_line)
+    endfunction
+    autocmd filetype unite call s:unite_settings()
+
+* NrrwRgn
+" open the narrowed window as a vertical split buffer
+" Use ,Space to toggle the highlight search
+" nnoremap <Leader><Space> :set hlsearch!<CR>
+" conflict with NrrwRgn
+" silent! nunmap <Leader><Space>
+" or
+nmap <F3> <Plug>NrrwrgnWinIncr
+xmap <F3> <Plug>NrrwrgnDo
+let g:nrrw_rgn_vert = 0
+vnoremap <leader>nr :NR<CR>
+
+* Splitjoin
+let g:splitjoin_split_mapping = ',s'
+let g:splitjoin_join_mapping  = ',j'
+
+* investigate.vim
+nnoremap K :call investigate#Investigate()<CR>
+
+* UltiSnips
+let g:UltiSnipsExpandTrigger="<C-K>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+* vim-surround
+
+* emmet-vim
+  " emmet-vim To remap the default <C-Y> leader
+  let g:user_emmet_leader_key='<S-Z>'
+
+* delimitMate
+
+* undotree
+  nnoremap <Leader>u :UndotreeToggle<CR>
+  " -> Tag bar
+  nnoremap <Leader>t :TagbarToggle<CR>
+  " -> NERD Tree
+  nnoremap <Leader>d :NERDTreeTabsToggle<CR>
+  nnoremap <Leader>f :NERDTreeFind<CR>
+
+* GoldenView.Vim
+
+* jeffy-plugins
+
+* vim-ragtag
+
+* xterm-color-table.vim
+
+* cscope
+| Shortcut   | Action                                      |
+|------------+---------------------------------------------|
+| <leader>ss | :cs find s <C-R>=expand("<cword>")<cr><cr>  |
+| <leader>sg | :cs find g <C-R>=expand("<cword>")<cr><cr>> |
+| <leader>sc | :cs find c <C-R>=expand("<cword>")<cr><cr>> |
+| <leader>st | :cs find t <C-R>=expand("<cword>")<cr><cr>> |
+| <leader>se | :cs find e <C-R>=expand("<cword>")<cr><cr>> |
+| <leader>sf | :cs find f <C-R>=expand("<cfile>")<cr><cr>> |
+| <leader>si | :cs find i <C-R>=expand("<cfile>")<cr><cr>> |
+| <leader>sd | :cs find d <C-R>=expand("<cword>")<cr><cr>> |
 
 * NERD Commenter
   Most of the following mappings are for normal/visual mode only.
