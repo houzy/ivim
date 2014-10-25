@@ -14,6 +14,10 @@
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
 | <Leader>n            | :set relativenumber!<CR>. Toggle relativenumber                 |
 | :verbose set var?    | Debug some variables                                            |
+| :cd                  | Change current path                                             |
+| :lcd                 | Change current window path                                      |
+| :pwd                 | Show current path                                               |
+| vim file +line       | Specific file line number when open file                        |
 autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
 
 * Key Mapping
