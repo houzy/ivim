@@ -353,6 +353,26 @@ The . command will work with ds, cs, and yss if you install repeat.vim.
   nnoremap <Leader>d :NERDTreeTabsToggle<CR>
   nnoremap <Leader>f :NERDTreeFind<CR>
 
+* vim-matchit
+1. Extended matching with "%"               *matchit-intro*
+                            *matchit-%*
+%   Cycle forward through matching groups, such as "if", "else", "endif",
+    as specified by |b:match_words|.
+                            *g%* *v_g%* *o_g%*
+g%  Cycle backwards through matching groups, as specified by
+    |b:match_words|.  For example, go from "if" to "endif" to "else".
+                            *[%* *v_[%* *o_[%*
+[%  Go to [count] previous unmatched group, as specified by
+    |b:match_words|.  Similar to |[{|.
+                            *]%* *v_]%* *o_]%*
+]%  Go to [count] next unmatched group, as specified by
+    |b:match_words|.  Similar to |]}|.
+                            *v_a%*
+a%  In Visual mode, select the matching group, as specified by
+    |b:match_words|, containing the cursor.  Similar to |v_a[|.
+    A [count] is ignored, and only the first character of the closing
+    pattern is selected.
+
 * syntastic
 | Shortcut   | Action                                                                        |
 |------------+-------------------------------------------------------------------------------|
