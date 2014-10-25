@@ -415,6 +415,8 @@ nmap <leader>si :cs find i <C-R>=expand("<cfile>")<cr><cr>
 nmap <leader>sd :cs find d <C-R>=expand("<cword>")<cr><cr>
 
 " syntastic
+" Toggles syntastic between active and passive mode.
+nmap <silent> <Leader>js :SyntasticToggleMode<CR>
 let g:syntastic_check_on_open = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1

@@ -6,6 +6,7 @@
 | <LocalLeader><Space> | Map \<Space> to commenting                                      |
 | <Leader>jg           | Toggle GitGutterLineHighlightsToggle                            |
 | <Leader>ji           | Toggle vim-indent-guides                                        |
+| <Leader>js           | Toggles syntastic between active and passive mode.              |
 | <Leader>jj           | goto next error                                                 |
 | <Leader>jk           | goto previous error                                             |
 | <C-C>                | "+y. ctrl+c default function: leave insert mode, similar to esc |
@@ -228,6 +229,11 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
   " -> NERD Tree
   nnoremap <Leader>d :NERDTreeTabsToggle<CR>
   nnoremap <Leader>f :NERDTreeFind<CR>
+
+* syntastic
+| Shortcut   | Action                                                                        |
+|------------+-------------------------------------------------------------------------------|
+| <Leader>js | :SyntasticToggleMode<CR>.  Toggles syntastic between active and passive mode. |
 
 * GoldenView.Vim
 
