@@ -325,6 +325,29 @@ The . command will work with ds, cs, and yss if you install repeat.vim.
 |------------+-------------------------------------------------------------------------------|
 | <Leader>js | :SyntasticToggleMode<CR>.  Toggles syntastic between active and passive mode. |
 
+* vim-easymotion
+Note: The default leader key has been changed to '<Leader><Leader>' to
+avoid conflicts with other plugins.
+| Default Mapping | Details                                   |
+|-----------------+-------------------------------------------|
+| <Leader>f{char} | Find {char} to the right.                 |
+| <Leader>F{char} | Find {char} to the left.                  |
+| <Leader>t{char} | Till before the {char} to the right.      |
+| <Leader>T{char} | Till after the {char} to the left.        |
+| <Leader>w       | Beginning of word forward.                |
+| <Leader>W       | Beginning of WORD forward.                |
+| <Leader>b       | Beginning of word backward.               |
+| <Leader>B       | Beginning of WORD backward.               |
+| <Leader>e       | End of word forward.                      |
+| <Leader>E       | End of WORD forward.                      |
+| <Leader>ge      | End of word backward.                     |
+| <Leader>gE      | End of WORD backward.                     |
+| <Leader>j       | Line downward.                            |
+| <Leader>k       | Line upward.                              |
+| <Leader>n       | Jump to latest "/" or "?" forward.        |
+| <Leader>N       | Jump to latest "/" or "?" backward.       |
+| <Leader>s       | Find(Search) {char} forward and backward. |
+
 * GoldenView.Vim
 
 * jeffy-plugins
