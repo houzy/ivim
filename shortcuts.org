@@ -187,12 +187,15 @@ augroup END
 | <Space>t | <C-U>Unite -quick-match tab<CR>                                                  |
 | <Space>/ | <C-U>Unite -auto-resize -buffer-name=search grep:.<CR>                           |
 function! s:unite_settings() " Use ESC to exit, and use C-J and C-K to move
-        nmap <buffer> <ESC> <plug>(unite_exit)
-        imap <buffer> <ESC> <plug>(unite_exit)
-        imap <buffer> <C-J> <Plug>(unite_select_next_line)
-        imap <buffer> <C-K> <Plug>(unite_select_previous_line)
-    endfunction
-    autocmd filetype unite call s:unite_settings()
+    nmap <buffer> <ESC> <plug>(unite_exit)
+    imap <buffer> <ESC> <plug>(unite_exit)
+    imap <buffer> <C-J> <Plug>(unite_select_next_line)
+    imap <buffer> <C-K> <Plug>(unite_select_previous_line)
+endfunction
+autocmd filetype unite call s:unite_settings()
+
+* vim-unimpaired
+:h unimpaired
 
 * NrrwRgn
 " open the narrowed window as a vertical split buffer
