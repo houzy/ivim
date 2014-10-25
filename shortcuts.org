@@ -202,25 +202,25 @@ complementary pairs of mappings. They mostly fall into four categories.
 
 There are mappings which are simply short normal mode aliases for commonly
 used ex commands. ]q is :cnext. [q is :cprevious. ]a is :next. [b is :bprevious.
-See the documentation for the full set of 20 mappings and mnemonics. All of 
+See the documentation for the full set of 20 mappings and mnemonics. All of
 them take a count.
 
-There are linewise mappings. [<Space> and ]<Space> add newlines before and 
-after the cursor line. [e and ]e exchange the current line with the one above 
+There are linewise mappings. [<Space> and ]<Space> add newlines before and
+after the cursor line. [e and ]e exchange the current line with the one above
 or below it.
 
-There are mappings for toggling options. [os, ]os, and cos perform :set spell, 
+There are mappings for toggling options. [os, ]os, and cos perform :set spell,
 :set nospell, and :set invspell, respectively. There's also l (list), n (number),
-w (wrap), x (cursorline cursorcolumn), and several others, plus mappings to help 
+w (wrap), x (cursorline cursorcolumn), and several others, plus mappings to help
 alleviate the set paste dance. Consult the documentation.
 
-There are mappings for encoding and decoding. [x and ]x encode and decode XML 
+There are mappings for encoding and decoding. [x and ]x encode and decode XML
 (and HTML). [u and ]u encode and decode URLs. [y and ]y do C String style escaping.
 
-And in the miscellaneous category, there's [f and ]f to go to the next/previous 
+And in the miscellaneous category, there's [f and ]f to go to the next/previous
 file in the directory, and [n and ]n to jump between SCM conflict markers.
 
-The . command works with all operator mappings, and will work with the linewise 
+The . command works with all operator mappings, and will work with the linewise
 mappings as well if you install repeat.vim.
 
 * NrrwRgn
@@ -380,6 +380,21 @@ avoid conflicts with other plugins.
 | <Leader>n       | Jump to latest "/" or "?" forward.        |
 | <Leader>N       | Jump to latest "/" or "?" backward.       |
 | <Leader>s       | Find(Search) {char} forward and backward. |
+
+* CamelCaseMotion
+This script defines motions ',w', ',b' and ',e' (similar to 'w', 'b', 'e'),
+which do not move word-wise (forward/backward), but Camel-wise; i.e. to word
+boundaries and uppercase letters. The motions also work on underscore notation,
+where words are delimited by underscore ('_') characters. From here on, both
+CamelCase and underscore_notation entities are referred to as "words" (in
+double quotes). Just like with the regular motions, a [count] can be prepended
+to move over multiple "words" at once. Outside of "words" (e.g. in non-keyword
+characters like // or ;), the new motions move just like the regular motions.
+
+Vim provides a built-in 'iw' text object called 'inner word', which works in
+operator-pending and visual mode. Analog to that, this script defines inner
+"word" motions 'i,w', 'i,b' and 'i,e', which select the "word" (or multiple
+"words" if a [count] is given) where the cursor is located.
 
 * GoldenView.Vim
 
