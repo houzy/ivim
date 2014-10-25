@@ -41,6 +41,8 @@ set whichwrap-=l
 
 set textwidth=0             " do not wrap words (insert)
 
+"set autochdir               " Set working directory to the current file
+
 set copyindent
 set smarttab
 set tabstop=4               " An indentation every four columns
@@ -463,6 +465,7 @@ highlight clear SignColumn
 " Toggle GitGutterLineHighlightsToggle
 nmap <silent> <Leader>jg :GitGutterLineHighlightsToggle<CR>
 let g:gitgutter_highlight_lines = 1
+"let g:gitgutter_enabled = 0
 
 " Toggle paste mode
 set pastetoggle=<leader>p
