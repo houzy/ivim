@@ -238,6 +238,11 @@ vnoremap <leader>nr :NR<CR>
 * Splitjoin
 let g:splitjoin_split_mapping = ',s'
 let g:splitjoin_join_mapping  = ',j'
+| Shortcut | Action                                                                                       |
+|----------+----------------------------------------------------------------------------------------------|
+| gS       | To split a one-liner into multiple lines                                                     |
+| gJ       | (with the cursor on the first line of a block) to join a block into a single-line statement. |
+More: :h splitjoin
 
 * investigate.vim
 nnoremap K :call investigate#Investigate()<CR>
@@ -344,12 +349,16 @@ The . command will work with ds, cs, and yss if you install repeat.vim.
   let g:user_emmet_leader_key='<S-Z>'
 
 * delimitMate
+  " -> delimitMate
+  let delimitMate_excluded_regions = "Comment"
 
 * undotree
   nnoremap <Leader>u :UndotreeToggle<CR>
-  " -> Tag bar
+
+* tagbar
   nnoremap <Leader>t :TagbarToggle<CR>
-  " -> NERD Tree
+
+* nerdtree
   nnoremap <Leader>d :NERDTreeTabsToggle<CR>
   nnoremap <Leader>f :NERDTreeFind<CR>
 
@@ -374,7 +383,7 @@ a%  In Visual mode, select the matching group, as specified by
     pattern is selected.
 
 * targets.vim
-h: targets
+:h targets
 
 * syntastic
 | Shortcut   | Action                                                                        |
