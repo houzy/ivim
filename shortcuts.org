@@ -215,6 +215,96 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 * vim-surround
+** Examples:
+| 1 | Old text              | Command | New text ~                |
+|---+-----------------------+---------+---------------------------|
+| 2 | "Hello *world!"       | ds"     | Hello world!              |
+| 3 | [123+4*56]/2          | cs])    | (123+456)/2               |
+| 4 | "Look ma, I'm *HTML!" | cs"<q>  | <q>Look ma, I'm HTML!</q> |
+| 5 | if *x>3 {             | ysW(    | if ( x>3 ) {              |
+| 6 | my $str = *whee!;     | vlllls' | my $str = 'whee!';        |
+| 7 | <div>Yo!*</div>       | dst     | Yo!                       |
+| 8 | <div>Yo!*</div>       | cst<p>  | <p>Yo!</p>                |
+解释一下，*代表当前光标位置，添加替换时使用后半括号)]}，添加的括号和内容间就没有空格（如第2个示例），反之会在内容前后添加一个空格（如第4个实例）。第6个示例中的t代表一对HTML或者xml tag。其他表示范围的符号：w代表word, W代表WORD(被空格分开的连续的字符窜），p代表paragraph。
+
+** Commands
+Normal mode
+-----------
+ds  - delete a surrounding
+cs  - change a surrounding
+ys  - add a surrounding
+yS  - add a surrounding and place the surrounded text on a new line + indent it
+yss - add a surrounding to the whole line
+ySs - add a surrounding to the whole line, place it on a new line + indent it
+ySS - same as ySs
+
+Visual mode
+-----------
+s   - in visual mode, add a surrounding
+S   - in visual mode, add a surrounding but place text on new line + indent it
+
+Insert mode
+-----------
+<CTRL-s>         - in insert mode, add a surrounding
+<CTRL-s><CTRL-s> - in insert mode, add a new line + surrounding + indent
+<CTRL-g>s        - same as <CTRL-s>
+<CTRL-g>S        - same as <CTRL-s><CTRL-s>
+
+** text-object motion
+1 ci[ ci( ci< ci{ 删除一对 [], (), <>, 或{} 中的所有字符并进入插入模式
+2 ci” ci’ ci` 删除一对引号字符 ”  ‘ 或 ` 中所有字符并进入插入模式
+3 cit 删除一对 HTML/XML 的标签内部的所有字符并进入插入模式
+
+其他常见operation
+1 ci: 例如，ci(，或者ci)，将会修改()之间的文本；
+2 di: 剪切配对符号之间文本；
+3 yi: 复制；
+4 ca: 同ci，但修改内容包括配对符号本身；
+5 da: 同di，但剪切内容包括配对符号本身；
+6 ya: 同yi，但复制内容包括配对符号本身。
+7 PS. dib等同于di(。diB等同于di{。
+
+** Official examples
+Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+
+It's easiest to explain with examples. Press cs"' inside
+
+"Hello world!"
+to change it to
+
+'Hello world!'
+Now press cs'<q> to change it to
+
+<q>Hello world!</q>
+To go full circle, press cst" to get
+
+"Hello world!"
+To remove the delimiters entirely, press ds".
+
+Hello world!
+Now with the cursor on "Hello", press ysiw] (iw is a text object).
+
+[Hello] world!
+Let's make that braces and add some space (use } instead of { for no space): cs]{
+
+{ Hello } world!
+Now wrap the entire line in parentheses with yssb or yss).
+
+({ Hello } world!)
+Revert to the original text: ds{ds)
+
+Hello world!
+Emphasize hello: ysiw<em>
+
+<em>Hello</em> world!
+Finally, let's try out visual mode. Press a capital V (for linewise visual mode) followed by S<p class="important">.
+
+<p class="important">
+  <em>Hello</em> world!
+</p>
+This plugin is very powerful for HTML and XML editing, a niche which currently seems underfilled in Vim land. (As opposed to HTML/XML inserting, for which many plugins are available). Adding, changing, and removing pairs of tags simultaneously is a breeze.
+
+The . command will work with ds, cs, and yss if you install repeat.vim.
 
 * emmet-vim
   " emmet-vim To remap the default <C-Y> leader
