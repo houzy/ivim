@@ -373,6 +373,9 @@ a%  In Visual mode, select the matching group, as specified by
     A [count] is ignored, and only the first character of the closing
     pattern is selected.
 
+* targets.vim
+h: targets
+
 * syntastic
 | Shortcut   | Action                                                                        |
 |------------+-------------------------------------------------------------------------------|
