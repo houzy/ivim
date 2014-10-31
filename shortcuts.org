@@ -1,3 +1,17 @@
+* Skills
+| Shortcut          | Action                                                  |
+|-------------------+---------------------------------------------------------|
+| :verbose set var? | Debug some variables                                    |
+| :cd               | Change current path                                     |
+| :lcd              | Change current window path                              |
+| :pwd              | Show current path                                       |
+| vim file +line    | Specific file line number when open file                |
+| <CTRL-V><Tab>     | Insert Tab                                              |
+| dd                | ["x]dd Delete [count] lines [into register x] linewise. |
+| cc                | ["x]cc Delete [count] lines [into register x] and start |
+|                   | insert linewise.  If 'autoindent' is on, preserve       |
+|                   | the indent of the first line.                           |
+
 * Custom setting
 | Shortcut             | Action                                                          |
 |----------------------+-----------------------------------------------------------------|
@@ -13,12 +27,6 @@
 | <Leader><Space>      | :set hlsearch!<CR>. Toggle the highlight search                 |
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
 | <Leader>n            | :set relativenumber!<CR>. Toggle relativenumber                 |
-| :verbose set var?    | Debug some variables                                            |
-| :cd                  | Change current path                                             |
-| :lcd                 | Change current window path                                      |
-| :pwd                 | Show current path                                               |
-| vim file +line       | Specific file line number when open file                        |
-| <CTRL-V><Tab>        | Insert Tab                                                      |
 autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
 
 * Key Mapping
@@ -453,33 +461,33 @@ operator-pending and visual mode. Analog to that, this script defines inner
   Most of the following mappings are for normal/visual mode only.
   The |NERDComInsertComment| mapping is for insert mode only.
 
-| Shortcut             | Action                                                                        |
-|----------------------+-------------------------------------------------------------------------------|
-| <LocalLeader><Space> | Map \<Space> to commenting                                                    |
-| [count]<leader>cc    | NERDComComment: Comment out the current line or text selected in visual mode. |
-| [count]<leader>cn    | NERDComNestedComment: Same as <leader>cc but forces nesting.                  |
-| [count]<leader>c     | NERDComToggleComment: Toggles the comment state of the selected line(s).      |
-|                      | If the topmost selected line is commented, all selected lines are uncommented |
-|                      | and vice versa.                                                               |
-| [count]<leader>cm    | NERDComMinimalComment: Comments the given lines using only one set of         |
-|                      | multipart delimiters.                                                         |
-| [count]<leader>ci    | NERDComInvertComment: Toggles the comment state of the selected line(s)       |
-|                      | individually.                                                                 |
-| [count]<leader>cs    | NERDComSexyComment: Comments out the selected lines ``sexily''                |
-| [count]<leader>cy    | NERDComYankComment: Same as <leader>cc except that the commented line(s)      |
-|                      | are yanked first.                                                             |
-| <leader>c$           | NERDComEOLComment: Comments the current line from the cursor                  |
-|                      | to the end of line.                                                           |
-| <leader>cA           | NERDComAppendComment: Adds comment delimiters to the end of                   |
-|                      | line and goes into insert mode between them.                                  |
-| NERDComInsertComment | Adds comment delimiters at the current cursor position and                    |
-|                      | inserts between. Disabled by default.                                         |
-| <leader>ca           | NERDComAltDelim: Switches to the alternative set of delimiters.               |
-| [count]<leader>cl    |                                                                               |
-| [count]<leader>cb    | NERDComAlignedComment: Same as NERDComComment except that the                 |
-|                      | delimiters are aligned down the left side (<leader>cl) or both                |
-|                      | sides (<leader>cb).                                                           |
-| [count]<leader>cu    | NERDComUncommentLine: Uncomments the selected line(s).                        |
+| Shortcut                | Action                                                                        |
+|-------------------------+-------------------------------------------------------------------------------|
+| <LocalLeader><Space>    | Map \<Space> to commenting                                                    |
+| [count]<leader>cc       | NERDComComment: Comment out the current line or text selected in visual mode. |
+| [count]<leader>cn       | NERDComNestedComment: Same as <leader>cc but forces nesting.                  |
+| [count]<leader>c<space> | NERDComToggleComment: Toggles the comment state of the selected line(s).      |
+|                         | If the topmost selected line is commented, all selected lines are uncommented |
+|                         | and vice versa.                                                               |
+| [count]<leader>cm       | NERDComMinimalComment: Comments the given lines using only one set of         |
+|                         | multipart delimiters.                                                         |
+| [count]<leader>ci       | NERDComInvertComment: Toggles the comment state of the selected line(s)       |
+|                         | individually.                                                                 |
+| [count]<leader>cs       | NERDComSexyComment: Comments out the selected lines ``sexily''                |
+| [count]<leader>cy       | NERDComYankComment: Same as <leader>cc except that the commented line(s)      |
+|                         | are yanked first.                                                             |
+| <leader>c$              | NERDComEOLComment: Comments the current line from the cursor                  |
+|                         | to the end of line.                                                           |
+| <leader>cA              | NERDComAppendComment: Adds comment delimiters to the end of                   |
+|                         | line and goes into insert mode between them.                                  |
+| NERDComInsertComment    | Adds comment delimiters at the current cursor position and                    |
+|                         | inserts between. Disabled by default.                                         |
+| <leader>ca              | NERDComAltDelim: Switches to the alternative set of delimiters.               |
+| [count]<leader>cl       |                                                                               |
+| [count]<leader>cb       | NERDComAlignedComment: Same as NERDComComment except that the                 |
+|                         | delimiters are aligned down the left side (<leader>cl) or both                |
+|                         | sides (<leader>cb).                                                           |
+| [count]<leader>cu       | NERDComUncommentLine: Uncomments the selected line(s).                        |
 
 * limelight
 | Shortcut              | Action             |
