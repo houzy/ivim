@@ -463,9 +463,11 @@ let g:indent_guides_guide_size = 1
 " change gitgutter SignColumn Same as line number column
 highlight clear SignColumn
 " Toggle GitGutterLineHighlightsToggle
-nmap <silent> <Leader>jg :GitGutterLineHighlightsToggle<CR>
+nmap <silent> <Leader>jgt :GitGutterToggle<CR>
+nmap <silent> <Leader>jgs :GitGutterSignsToggle<CR>
+nmap <silent> <Leader>jgh :GitGutterLineHighlightsToggle<CR>
 let g:gitgutter_highlight_lines = 1
-"let g:gitgutter_enabled = 0
+let g:gitgutter_enabled = 1
 
 " Toggle paste mode
 set pastetoggle=<leader>p

@@ -18,7 +18,9 @@
 | <leader>p            | Toggles paste mode.                                             |
 | :g/^$/d              | Delete blank lines.                                             |
 | <LocalLeader><Space> | Map \<Space> to commenting                                      |
-| <Leader>jg           | Toggle GitGutterLineHighlightsToggle                            |
+| <Leader>jgt          | :GitGutterToggle<CR>                                            |
+| <Leader>jgs          | :GitGutterSignsToggle<CR>                                       |
+| <Leader>jgh          | :GitGutterLineHighlightsToggle<CR>                              |
 | <Leader>ji           | Toggle vim-indent-guides                                        |
 | <Leader>js           | Toggles syntastic between active and passive mode.              |
 | <Leader>jj           | goto next error                                                 |
@@ -497,14 +499,16 @@ operator-pending and visual mode. Analog to that, this script defines inner
 | :Limelight!![0.0~1.0] | Toggle Limelight   |
 
 * gitgutter
-| Shortcut   | Action                               |
-|------------+--------------------------------------|
-| <Leader>jg | Toggle GitGutterLineHighlightsToggle |
-| ]c         | jump to next hunk (change)           |
-| [c         | jump to previous hunk (change)       |
-| <Leader>hs | stage the hunk                       |
-| <Leader>hr | revert it                            |
-| <Leader>hp | preview a hunk's changes             |
+| Shortcut    | Action                             |
+|-------------+------------------------------------|
+| <Leader>jgt | :GitGutterToggle<CR>               |
+| <Leader>jgs | :GitGutterSignsToggle<CR>          |
+| <Leader>jgh | :GitGutterLineHighlightsToggle<CR> |
+| ]c          | jump to next hunk (change)         |
+| [c          | jump to previous hunk (change)     |
+| <Leader>hs  | stage the hunk                     |
+| <Leader>hr  | revert it                          |
+| <Leader>hp  | preview a hunk's changes           |
 
 * VimOrganizer
 | Shortcut                  | Action               |
