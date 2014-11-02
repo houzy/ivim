@@ -491,6 +491,9 @@ let g:gitgutter_enabled = 1
 " Toggle paste mode
 set pastetoggle=<leader>p
 
+" Tabedit current file
+nnoremap <Leader>je :tabedit %<CR>
+
 " vim orgmode: VimOrganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org :GitGutterDisable

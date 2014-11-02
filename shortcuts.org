@@ -3,8 +3,10 @@
 |-------------------+------------------------------------------------------------------------------|
 | :verbose set var? | Debug some variables                                                         |
 | :cd               | Change current path                                                          |
+| :cd %:h           | Change to current file's path                                                |
 | :lcd              | Change current window path                                                   |
 | :pwd              | Show current path                                                            |
+| tabedit %         | tabedit current file                                                         |
 | vim file +line    | Specific file line number when open file                                     |
 | <CTRL-V><Tab>     | Insert Tab                                                                   |
 | dd                | ["x]dd Delete [count] lines [into register x] linewise.                      |
@@ -46,6 +48,7 @@
 | <Leader><Space>      | :set hlsearch!<CR>. Toggle the highlight search                 |
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
 | <Leader>n            | :set relativenumber!<CR>. Toggle relativenumber                 |
+| <Leader>je           | :tabedit %<CR>. Tabedit current file                            |
 autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
 
 * Key Mapping
