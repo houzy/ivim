@@ -23,6 +23,11 @@ NeoBundle 'vim-scripts/utl.vim'
 " gruvbox color scheme
 NeoBundle 'morhetz/gruvbox'
 
+" Snippets
+NeoBundle 'houzy/my-vim-snippets' " Snippets
+
+NeoBundleCheck
+
 " }}}
 
 " local settings {{{
@@ -356,10 +361,17 @@ endif
 call unite#custom#default_action('file', 'tabopen')
 
 " Neosnippet
+" Setting info for snips
+let g:snips_author=g:ivim_user
+let g:snips_email=g:ivim_email
+let g:snips_github=g:ivim_github
+let g:snips_company=''
 "Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+" or
+let g:neosnippet#snippets_directory='~/.vim/bundle/my-vim-snippets/snippets'
 
 " jeffy-plugins
 let g:jeffy_plugins_enable_colors = 0
@@ -472,7 +484,8 @@ highlight clear SignColumn
 nmap <silent> <Leader>jgt :GitGutterToggle<CR>
 nmap <silent> <Leader>jgs :GitGutterSignsToggle<CR>
 nmap <silent> <Leader>jgh :GitGutterLineHighlightsToggle<CR>
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_signs = 1
 let g:gitgutter_enabled = 1
 
 " Toggle paste mode
