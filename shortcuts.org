@@ -44,11 +44,12 @@
 | <Leader>js           | Toggles syntastic between active and passive mode.              |
 | <Leader>jj           | goto next error                                                 |
 | <Leader>jk           | goto previous error                                             |
-| <C-C>                | "+y. ctrl+c default function: leave insert mode, similar to esc |
+| <C-c>                | "+y. ctrl+c default function: leave insert mode, similar to esc |
 | <Leader><Space>      | :set hlsearch!<CR>. Toggle the highlight search                 |
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
 | <Leader>n            | :set relativenumber!<CR>. Toggle relativenumber                 |
 | <Leader>je           | :tabedit %<CR>. Tabedit current file                            |
+| <C-k>                | Jump to next snippet point                                      |
 autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
 
 * Key Mapping
