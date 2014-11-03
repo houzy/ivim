@@ -20,6 +20,10 @@ NeoBundle 'mattn/calendar-vim'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'vim-scripts/utl.vim'
 
+" vimshell
+" Require Shougo/vimproc
+NeoBundle 'Shougo/vimshell.vim'
+
 " gruvbox color scheme
 NeoBundle 'morhetz/gruvbox'
 
@@ -487,6 +491,10 @@ nmap <silent> <Leader>jgh :GitGutterLineHighlightsToggle<CR>
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_signs = 1
 let g:gitgutter_enabled = 1
+
+" vimshell
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+let g:vimshell_prompt =  '$ '
 
 " Toggle paste mode
 set pastetoggle=<leader>p

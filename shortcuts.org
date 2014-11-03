@@ -415,7 +415,28 @@ a%  In Visual mode, select the matching group, as specified by
     pattern is selected.
 
 * targets.vim
+结合surround插件中的描述：
+ci[ ci( ci< ci{ 删除一对 [], (), <>, 或{} 中的所有字符并进入插入模式
+ci” ci’ ci` 删除一对引号字符 ”  ‘ 或 ` 中所有字符并进入插入模式
+cit 删除一对 HTML/XML 的标签内部的所有字符并进入插入模式
+
+ci: 例如，ci(，或者ci)，将会修改()之间的文本；
+di: 剪切配对符号之间文本；
+yi: 复制；
+ca: 同ci，但修改内容包括配对符号本身；
+da: 同di，但剪切内容包括配对符号本身；
+ya: 同yi，但复制内容包括配对符号本身。
+PS. dib等同于di(。diB等同于di{。
+
+targets.vim插件对vim此功能进行了增强。
 :h targets
+
+* vimshell.vim
+| Shortcut  | Action                                                         |
+|-----------+----------------------------------------------------------------|
+| :VimShell | Start Vim Shell                                                |
+| <C-l>     | open the unite interface of VimShell’s command history, choose |
+|           | a candidate, and type <Cr> to execute it.                      |
 
 * syntastic
 | Shortcut   | Action                                                                        |
