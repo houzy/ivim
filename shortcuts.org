@@ -30,6 +30,8 @@
 | CTRL-t            | In insert mode, insert indent at start of line                               |
 | CTRL-d            | In insert mode, remove indent at start of line                               |
 | 0 CTRL-d          | In insert mode, remove all indentation from line                             |
+| sudoedit          | Using sudoedit to avoid getting warning: "sudo vim" is detected. This        |
+|                   | feature is disabled.                                                         |
 
 * Custom setting
 | Shortcut             | Action                                                          |
