@@ -32,6 +32,8 @@
 | 0 CTRL-d          | In insert mode, remove all indentation from line                             |
 | sudoedit          | Using sudoedit to avoid getting warning: "sudo vim" is detected. This        |
 |                   | feature is disabled.                                                         |
+| gt5               | shell program to display visual disk usage                                   |
+| tig               | ncurses-based Git repository browser                                         |
 
 * Custom setting
 | Shortcut             | Action                                                          |
