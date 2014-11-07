@@ -51,6 +51,12 @@ set whichwrap-=l
 set textwidth=0             " do not wrap words (insert)
 
 "set autochdir               " Set working directory to the current file
+"set cursorline              " Highlight current line
+" In vimrc:
+"autocmd WinLeave * set nocursorline
+"autocmd WinEnter * set cursorline
+"autocmd InsertEnter * set nocursorline
+"autocmd InsertLeave * set cursorline
 
 set copyindent
 set smarttab
