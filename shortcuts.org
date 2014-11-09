@@ -32,6 +32,11 @@
 | 0 CTRL-d          | In insert mode, remove all indentation from line                             |
 | sudoedit          | Using sudoedit to avoid getting warning: "sudo vim" is detected. This        |
 |                   | feature is disabled.                                                         |
+|                   | A: Because neocomplete (and other plugins) creates temporary files           |
+|                   | in super user permission by sudo command. You must use sudo.vim              |
+|                   | or set "Defaults always_set_home" in "/etc/sudoers", or must use             |
+|                   | "sudoedit" command.                                                          |
+| w!                | Force to write to disk when a file is read only.                             |
 | gt5               | shell program to display visual disk usage                                   |
 | tig               | ncurses-based Git repository browser                                         |
 
