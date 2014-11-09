@@ -30,6 +30,9 @@ NeoBundle 'morhetz/gruvbox'
 " Snippets
 NeoBundle 'houzy/my-vim-snippets' " Snippets
 
+" SudoEdit.vim
+NeoBundle 'chrisbra/SudoEdit.vim'
+
 NeoBundleCheck
 
 " }}}
