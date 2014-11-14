@@ -511,6 +511,9 @@ set pastetoggle=<leader>p
 " Tabedit current file
 nnoremap <Leader>je :tabedit %<CR>
 
+" Change to current file's path
+nnoremap <Leader>jd :cd %:h<CR>
+
 " vim orgmode: VimOrganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org :GitGutterDisable

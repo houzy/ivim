@@ -58,6 +58,7 @@
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
 | <Leader>n            | :set relativenumber!<CR>. Toggle relativenumber                 |
 | <Leader>je           | :tabedit %<CR>. Tabedit current file                            |
+| <Leader>jd           | :cd %:h. Change to current file's path                          |
 | <C-k>                | Jump to next snippet point                                      |
 autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
 
