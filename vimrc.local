@@ -33,6 +33,9 @@ NeoBundle 'houzy/my-vim-snippets' " Snippets
 " SudoEdit.vim
 NeoBundle 'chrisbra/SudoEdit.vim'
 
+" DoxygenToolkit.vim
+NeoBundle 'segfo/DoxygenToolkit.vim'
+
 NeoBundleCheck
 
 " }}}
@@ -478,6 +481,15 @@ let g:syntastic_python_pylint_args="-d C0103,C0111,C0301,C0326"
 "let g:syntastic_cpp_check_header = 1
 "let g:syntastic_cpp_compiler = 'clang++'
 "let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
+
+" DoxygenToolkit.vim
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
+let g:DoxygenToolkit_authorName="Mathias Lorente"
+let g:DoxygenToolkit_licenseTag="My own license" <-- !!! Does not end with "\<enter>"
 
 " goto next or previous error
 nmap <leader>jj :lnext<cr>
