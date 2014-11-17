@@ -408,6 +408,7 @@ The . command will work with ds, cs, and yss if you install repeat.vim.
 * delimitMate
   " -> delimitMate
   let delimitMate_excluded_regions = "Comment"
+  h: group-name
 
 * undotree
   nnoremap <Leader>u :UndotreeToggle<CR>
