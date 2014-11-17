@@ -488,8 +488,16 @@ let g:DoxygenToolkit_paramTag_pre="@Param "
 let g:DoxygenToolkit_returnTag="@Returns   "
 let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
-let g:DoxygenToolkit_authorName="Mathias Lorente"
-let g:DoxygenToolkit_licenseTag="My own license" <-- !!! Does not end with "\<enter>"
+let g:DoxygenToolkit_authorName="houzy"
+let g:DoxygenToolkit_licenseTag="My own license"
+
+let g:DoxygenToolkit_authorName="houzy, h-zy2008@hotmail.com"
+let s:licenseTag = "Copyright(C)\<enter>"
+let s:licenseTag = s:licenseTag . "For free\<enter>"
+let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
+let g:DoxygenToolkit_licenseTag = s:licenseTag
+let g:DoxygenToolkit_briefTag_funcName="yes"
+let g:doxygen_enhanced_color=1
 
 " goto next or previous error
 nmap <leader>jj :lnext<cr>
