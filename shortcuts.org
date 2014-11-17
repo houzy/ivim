@@ -215,6 +215,15 @@ augroup ft_less
     autocmd filetype less nnoremap <buffer> <Leader>r :w <BAR> !lessc % > %:t:r.css<CR><Space>
 augroup END
 
+* DoxygenToolkit.vim
+| Shortcut   | Action                     |
+|------------+----------------------------|
+| :Dox       | Generate function synopsis |
+| :DoxAuthor | Generate file synopsis     |
+| :DoxBlock  | Generate block synopsis    |
+| :DoxLic    | Generate licence synopsis  |
+| :DoxUndoc  |                            |
+
 * goyo.vim
   TODO
 
