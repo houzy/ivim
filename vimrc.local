@@ -142,8 +142,18 @@ endif
 
 " neocomplete or neocomplcache {{{
 
+if g:ivim_completion_engine=='neocomplete'
+    " Neosnippet
+    "Enable snipMate compatibility feature.
+    let g:neosnippet#enable_snipmate_compatibility = 1
+    " Tell Neosnippet about the other snippets
+    "let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+    " or
+    let g:neosnippet#snippets_directory='~/.vim/bundle/my-vim-snippets/snippets'
+endif
+
 " Install vim-gnome will provide vim-lua support
-if has('lua')
+if has('lua') && g:ivim_completion_engine=='neocomplete'
     " neocomplete {
     let g:acp_enableAtStartup = 0
     let g:neocomplete#enable_at_startup = 1
@@ -288,7 +298,7 @@ if has('lua')
     "let g:neocomplete#force_omni_input_patterns.objcpp =
     "      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
     " }
-else
+elif g:ivim_completion_engine=='neocomplete'
     " neocomplcache {
     let g:acp_enableAtStartup = 0
     let g:neocomplcache_enable_at_startup = 1
@@ -393,7 +403,98 @@ endif
 
 " }}}
 
+" YouCompleteMe {{{
+
+if g:ivim_completion_engine=='YouCompleteMe'
+    let g:acp_enableAtStartup = 0
+
+    " enable completion from tags
+    let g:ycm_collect_identifiers_from_tags_files = 1
+
+    " Enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+    " Haskell post write lint and check with ghcmod
+    " $ `cabal install ghcmod` if missing and ensure
+    " ~/.cabal/bin is in your $PATH.
+    if !executable("ghcmod")
+        autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+    endif
+
+    " For snippet_complete marker.
+    if !exists("g:spf13_no_conceal")
+        if has('conceal')
+            set conceallevel=2 concealcursor=i
+        endif
+    endif
+
+    " Disable the neosnippet preview candidate window
+    " When enabled, there can be too much visual noise
+    " especially when splits are used.
+    set completeopt-=preview
+
+    " YouCompleteMe
+    let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+    let g:ycm_collect_identifiers_from_tags_files = 0
+    let g:ycm_seed_identifiers_with_syntax = 1
+    let g:ycm_confirm_extra_conf = 0
+    " 关闭YouCompleteMe得高亮错误，用syntastic的
+    let g:ycm_show_diagnostics_ui = 0
+    "let g:ycm_error_symbol = "✗"
+    "let g:ycm_warning_symbol = "⚠"
+    let g:ycm_always_populate_location_list = 1
+    let g:ycm_autoclose_preview_window_after_completion=1
+    let g:ycm_add_preview_to_completeopt = 0
+    let g:ycm_key_detailed_diagnostics = '<leader>d'
+    "nnoremap <leader>jg :YcmCompleter GoTo<CR>  " ctrl+o jumpback ctrl+i jumpforward
+    nnoremap <leader>jg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    nnoremap <leader>jf :YcmForceCompileAndDiagnostics<CR>
+    " 禁止缓存匹配项,每次都重新生成匹配项
+    let g:ycm_cache_omnifunc = 0
+    "在注释输入中也能补全
+    let g:ycm_complete_in_comments = 1
+    "在字符串输入中也能补全
+    let g:ycm_complete_in_strings = 1
+    "注释和字符串中的文字也会被收入补全
+    let g:ycm_collect_identifiers_from_comments_and_strings = 0
+    let g:ycm_key_invoke_completion = '<S-Space>'
+
+    "let g:ycm_use_ultisnips_completer = 0
+    " make YCM compatible with UltiSnips (using supertab)
+    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+    let g:SuperTabDefaultCompletionType = '<C-n>'
+
+    " better key bindings for UltiSnipsExpandTrigger
+    let g:UltiSnipsExpandTrigger = "<c-k>"
+    let g:UltiSnipsListSnippets = "<c-s-l>"
+    let g:UltiSnipsJumpForwardTrigger = "<c-k>"
+    let g:UltiSnipsJumpBackwardTrigger = "<c-j>"
+
+    " UltiSnips snippets directory
+    " let g:UltiSnipsSnippetDirectories=['UltiSnips']
+    " let g:UltiSnipsSnippetsDir='~/.vim/bundle/vim-snippets'
+    " or
+    let g:UltiSnipsSnippetDirectories=['my-UltiSnips']
+    let g:UltiSnipsSnippetsDir='~/.vim/bundle/my-vim-snippets'
+
+endif
+
+" }}}
+
 " other plugins setting {{{
+
+" Setting info for snips
+let g:snips_author=g:ivim_user
+let g:snips_email=g:ivim_email
+let g:snips_github=g:ivim_github
+let g:snips_company=''
 
 " xterm-color-table.vim
 " Provides command :XtermColorTable, as well as variants for different splits
@@ -408,19 +509,6 @@ endif
 " You may specify multiple {kind} with the separator ",".
 " Open file in new tab, instead of in new buffer.
 call unite#custom#default_action('file', 'tabopen')
-
-" Neosnippet
-" Setting info for snips
-let g:snips_author=g:ivim_user
-let g:snips_email=g:ivim_email
-let g:snips_github=g:ivim_github
-let g:snips_company=''
-"Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-" Tell Neosnippet about the other snippets
-"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-" or
-let g:neosnippet#snippets_directory='~/.vim/bundle/my-vim-snippets/snippets'
 
 " jeffy-plugins
 let g:jeffy_plugins_enable_colors = 0
