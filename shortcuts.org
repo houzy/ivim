@@ -215,6 +215,18 @@ augroup ft_less
     autocmd filetype less nnoremap <buffer> <Leader>r :w <BAR> !lessc % > %:t:r.css<CR><Space>
 augroup END
 
+* YouCompleteMe
+| Shortcut   | Action                                                |
+|------------+-------------------------------------------------------|
+| c-x c-o    | :verbose imap <C/S-Space> and :verbose imap <Nul>     |
+|            | https://github.com/Valloric/YouCompleteMe/issues/1123 |
+| c-x c-n    | Using vim's completion, not YouCompleteMe             |
+| c-x c-p    | Using vim's completion, not YouCompleteMe             |
+|            | YCM doesn't show function parameters for C            |
+|            | https://github.com/Valloric/YouCompleteMe/issues/234# |
+| <leader>jg | :YcmCompleter GoToDefinitionElseDeclaration<CR>       |
+| <leader>jf | :YcmForceCompileAndDiagnostics<CR>                    |
+
 * DoxygenToolkit.vim
 | Shortcut   | Action                     |
 |------------+----------------------------|
