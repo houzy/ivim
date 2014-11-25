@@ -298,7 +298,7 @@ if has('lua') && g:ivim_completion_engine=='neocomplete'
     "let g:neocomplete#force_omni_input_patterns.objcpp =
     "      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
     " }
-elif g:ivim_completion_engine=='neocomplete'
+elseif g:ivim_completion_engine=='neocomplete'
     " neocomplcache {
     let g:acp_enableAtStartup = 0
     let g:neocomplcache_enable_at_startup = 1
