@@ -149,7 +149,7 @@ if g:ivim_completion_engine=='neocomplete'
     " Tell Neosnippet about the other snippets
     "let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
     " or
-    let g:neosnippet#snippets_directory='~/.vim/bundle/my-vim-snippets/snippets'
+    let g:neosnippet#snippets_directory='~/.vim/bundle/my-vim-snippets/my-snippets'
 endif
 
 " Install vim-gnome will provide vim-lua support
