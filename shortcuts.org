@@ -57,6 +57,7 @@
 | <Leader>jd           | :cd %:h. Change to current file's path                          |
 | <leader>jg           | :YcmCompleter GoToDefinitionElseDeclaration<CR>                 |
 | <leader>jf           | :YcmForceCompileAndDiagnostics<CR>                              |
+| <Leader>jl           | let g:ycm_key_detailed_diagnostics = '<leader>jl'               |
 | <C-c>                | "+y. ctrl+c default function: leave insert mode, similar to esc |
 | <Leader><Space>      | :set hlsearch!<CR>. Toggle the highlight search                 |
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
@@ -230,6 +231,14 @@ augroup END
 | <leader>jg | :YcmCompleter GoToDefinitionElseDeclaration<CR>       |
 | <leader>jf | :YcmForceCompileAndDiagnostics<CR>                    |
 | <leader>jh | :YcmDiags<CR>                                         |
+| <Leader>jl | let g:ycm_key_detailed_diagnostics = '<leader>jl'     |
+
+* syntastic
+| Shortcut   | Action                                                                        |
+|------------+-------------------------------------------------------------------------------|
+| <Leader>js | :SyntasticToggleMode<CR>.  Toggles syntastic between active and passive mode. |
+| <leader>jj | :lnext<cr>                                                                    |
+| <leader>jk | :lprev<cr>                                                                    |
 
 * DoxygenToolkit.vim
 | Shortcut   | Action                     |
@@ -479,11 +488,6 @@ targets.vim插件对vim此功能进行了增强。
 | :VimShell | Start Vim Shell                                                |
 | <C-l>     | open the unite interface of VimShell’s command history, choose |
 |           | a candidate, and type <Cr> to execute it.                      |
-
-* syntastic
-| Shortcut   | Action                                                                        |
-|------------+-------------------------------------------------------------------------------|
-| <Leader>js | :SyntasticToggleMode<CR>.  Toggles syntastic between active and passive mode. |
 
 * vim-easymotion
 Note: The default leader key has been changed to '<Leader><Leader>' to
