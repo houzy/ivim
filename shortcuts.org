@@ -39,6 +39,24 @@
 | w!                | Force to write to disk when a file is read only.                             |
 | gt5               | shell program to display visual disk usage                                   |
 | tig               | ncurses-based Git repository browser                                         |
+| [range]j[lines]   | Merge mulitple lines into one line                                           |
+|                   | Add text to multiple lines in Vim                                            |
+| Ctrl-v Shift-i    | 1: At the beginning                                                          |
+|                   | Go to the first foo, press Ctrl-v to enter visual block modeg                |
+|                   | and press down until all the lines with foo are marked. Theng                |
+|                   | press Shift-i to insert at the beginning (of the block). Wheng               |
+|                   | you are finished and press Esc, the inserted characters willg                |
+|                   | be added to each line at the left of the marked block.g                      |
+| Ctrl-v $ Shift-a  | 2: At the end                                                                |
+|                   | To insert at the end, press again Ctrl-v, move up/down to mark               |
+|                   | all affected lines and then press End or $ to extend the                     |
+|                   | selection until the end of the lines. Now you can press                      |
+|                   | Shift-a to append at the end of all the lines, just like                     |
+|                   | previously with Shift-i.                                                     |
+| Ctrl-v % Shift-i  | 3: A whole block                                                             |
+|                   | The visual selection can also be done with normal movement commands.         |
+|                   | So to comment a whole block in C you could move to the opening brace         |
+|                   | and type Ctrl-v % Shift-i // Esc.                                            |
 
 * Custom setting
 | Shortcut             | Action                                                          |
@@ -530,6 +548,12 @@ operator-pending and visual mode. Analog to that, this script defines inner
 * GoldenView.Vim
 
 * jeffy-plugins
+| Shortcut   | Action                              |
+|------------+-------------------------------------|
+| <leader>jc | :JeffyProjectCreate<cr>             |
+| <leader>ju | :JeffyProjectUpdate<cr>             |
+| <leader>jl | :JeffyProjectLoad<cr>, no using now |
+| <leader>jq | :JeffyProjectQuit<cr>               |
 
 * vim-ragtag
 
