@@ -455,6 +455,7 @@ if g:ivim_completion_engine=='YouCompleteMe'
     "nnoremap <leader>jg :YcmCompleter GoTo<CR>  " ctrl+o jumpback ctrl+i jumpforward
     nnoremap <leader>jg :YcmCompleter GoToDefinitionElseDeclaration<CR>
     nnoremap <leader>jf :YcmForceCompileAndDiagnostics<CR>
+    nnoremap <leader>jh :YcmDiags<CR>
     " 禁止缓存匹配项,每次都重新生成匹配项
     let g:ycm_cache_omnifunc = 0
     "在注释输入中也能补全
