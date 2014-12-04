@@ -452,8 +452,10 @@ if g:ivim_completion_engine=='YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion=1
     let g:ycm_add_preview_to_completeopt = 0
     let g:ycm_key_detailed_diagnostics = '<leader>jl'
-    "nnoremap <leader>jg :YcmCompleter GoTo<CR>  " ctrl+o jumpback ctrl+i jumpforward
-    nnoremap <leader>jg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    nnoremap <leader>jg :YcmCompleter GoTo<CR>  " ctrl+o jumpback ctrl+i jumpforward
+    " Goto is the same as GoToDefinitionElseDeclaration
+    "nnoremap <leader>jg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
     nnoremap <leader>jf :YcmForceCompileAndDiagnostics<CR>
     nnoremap <leader>jh :YcmDiags<CR>
     " 禁止缓存匹配项,每次都重新生成匹配项
@@ -656,7 +658,7 @@ set pastetoggle=<leader>p
 nnoremap <Leader>je :tabedit %<CR>
 
 " Change to current file's path
-nnoremap <Leader>jd :cd %:h<CR>
+nnoremap <Leader>jc :cd %:h<CR>
 
 " vim orgmode: VimOrganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org

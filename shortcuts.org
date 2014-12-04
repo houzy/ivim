@@ -72,16 +72,17 @@
 | <Leader>jj           | goto next error                                                 |
 | <Leader>jk           | goto previous error                                             |
 | <Leader>je           | :tabedit %<CR>. Tabedit current file                            |
-| <Leader>jd           | :cd %:h. Change to current file's path                          |
+| <Leader>jc           | :cd %:h. Change to current file's path                          |
+| <leader>jd           | :YcmCompleter GoToDeclaration<CR>                               |
 | <leader>jg           | :YcmCompleter GoToDefinitionElseDeclaration<CR>                 |
 | <leader>jf           | :YcmForceCompileAndDiagnostics<CR>                              |
+| <leader>jh           | :YcmDiags<CR>                                                   |
 | <Leader>jl           | let g:ycm_key_detailed_diagnostics = '<leader>jl'               |
 | <C-c>                | "+y. ctrl+c default function: leave insert mode, similar to esc |
 | <Leader><Space>      | :set hlsearch!<CR>. Toggle the highlight search                 |
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
 | <Leader>n            | :set relativenumber!<CR>. Toggle relativenumber                 |
 | <C-k>                | Jump to next snippet point                                      |
-| <leader>jh           | :YcmDiags<CR>                                                   |
 autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
 
 * Key Mapping
@@ -246,6 +247,7 @@ augroup END
 | c-x c-p    | Using vim's completion, not YouCompleteMe             |
 |            | YCM doesn't show function parameters for C            |
 |            | https://github.com/Valloric/YouCompleteMe/issues/234# |
+| <leader>jd | :YcmCompleter GoToDeclaration<CR>                     |
 | <leader>jg | :YcmCompleter GoToDefinitionElseDeclaration<CR>       |
 | <leader>jf | :YcmForceCompileAndDiagnostics<CR>                    |
 | <leader>jh | :YcmDiags<CR>                                         |
