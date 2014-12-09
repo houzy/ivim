@@ -1,9 +1,5 @@
 " NeoBundle settings {{{
 
-" TODO
-"NeoBundle 'hewes/unite-gtags'
-"NeoBundle 'shibuyanorailgun/gtags.vim'
-
 NeoBundle 'mbbill/fencview' " Enhance fileencoding detect
 NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'houzy/jeffy-plugins'
@@ -35,6 +31,12 @@ NeoBundle 'chrisbra/SudoEdit.vim'
 
 " DoxygenToolkit.vim
 NeoBundle 'segfo/DoxygenToolkit.vim'
+
+" TODO
+"NeoBundle 'hewes/unite-gtags'
+"NeoBundle 'shibuyanorailgun/gtags.vim'
+"NeoBundle 'junegunn/vim-easy-align'
+"NeoBundle 'junegunn/goyo.vim'
 
 NeoBundleCheck
 
