@@ -1,62 +1,76 @@
 * Skills
-| Shortcut          | Action                                                                       |
-|-------------------+------------------------------------------------------------------------------|
-| :verbose set var? | Debug some variables                                                         |
-| :cd               | Change current path                                                          |
-| :cd %:h           | Change to current file's path                                                |
-| :lcd              | Change current window path                                                   |
-| :pwd              | Show current path                                                            |
-| tabedit %         | tabedit current file                                                         |
-| vim file +line    | Specific file line number when open file                                     |
-| <CTRL-V><Tab>     | Insert Tab                                                                   |
-| dd                | ["x]dd Delete [count] lines [into register x] linewise.                      |
-| cc                | ["x]cc Delete [count] lines [into register x] and start                      |
-|                   | insert linewise.  If 'autoindent' is on, preserve                            |
-|                   | the indent of the first line.                                                |
-| >>                | Indent line by shiftwidth spaces                                             |
-| <<                | De-indent line by shiftwidth spaces                                          |
-| 5>>               | Indent 5 lines                                                               |
-| Vjj>              | Indent 3 lines                                                               |
-| 5==               | Re-indent 5 lines                                                            |
-| >%                | Increase indent of a braced or bracketed block (place cursor on brace first) |
-| =%                | Reindent a braced or bracketed block (cursor on brace)                       |
-| <%                | Decrease indent of a braced or bracketed block (cursor on brace)             |
-| ]p                | Paste text, aligning indentation with surroundings                           |
-| =i{               | Re-indent the 'inner block', i.e. the contents of the block                  |
-| =a{               | Re-indent 'a block', i.e. block and containing braces                        |
-| =2a{              | Re-indent '2 blocks', i.e. this block and containing block                   |
-| >i{               | Increase inner block indent                                                  |
-| <i{               | Decrease inner block indent                                                  |
-| CTRL-t            | In insert mode, insert indent at start of line                               |
-| CTRL-d            | In insert mode, remove indent at start of line                               |
-| 0 CTRL-d          | In insert mode, remove all indentation from line                             |
-| sudoedit          | Using sudoedit to avoid getting warning: "sudo vim" is detected. This        |
-|                   | feature is disabled.                                                         |
-|                   | A: Because neocomplete (and other plugins) creates temporary files           |
-|                   | in super user permission by sudo command. You must use sudo.vim              |
-|                   | or set "Defaults always_set_home" in "/etc/sudoers", or must use             |
-|                   | "sudoedit" command.                                                          |
-| w!                | Force to write to disk when a file is read only.                             |
-| gt5               | shell program to display visual disk usage                                   |
-| tig               | ncurses-based Git repository browser                                         |
-| [range]j[lines]   | Merge mulitple lines into one line                                           |
-|                   | Add text to multiple lines in Vim                                            |
-| Ctrl-v Shift-i    | 1: At the beginning                                                          |
-|                   | Go to the first foo, press Ctrl-v to enter visual block modeg                |
-|                   | and press down until all the lines with foo are marked. Theng                |
-|                   | press Shift-i to insert at the beginning (of the block). Wheng               |
-|                   | you are finished and press Esc, the inserted characters willg                |
-|                   | be added to each line at the left of the marked block.g                      |
-| Ctrl-v $ Shift-a  | 2: At the end                                                                |
-|                   | To insert at the end, press again Ctrl-v, move up/down to mark               |
-|                   | all affected lines and then press End or $ to extend the                     |
-|                   | selection until the end of the lines. Now you can press                      |
-|                   | Shift-a to append at the end of all the lines, just like                     |
-|                   | previously with Shift-i.                                                     |
-| Ctrl-v % Shift-i  | 3: A whole block                                                             |
-|                   | The visual selection can also be done with normal movement commands.         |
-|                   | So to comment a whole block in C you could move to the opening brace         |
-|                   | and type Ctrl-v % Shift-i // Esc.                                            |
+| Shortcut          | Action                                                                          |
+|-------------------+---------------------------------------------------------------------------------|
+| :verbose set var? | Debug some variables                                                            |
+| :cd               | Change current path                                                             |
+| :cd %:h           | Change to current file's path                                                   |
+| :lcd              | Change current window path                                                      |
+| :pwd              | Show current path                                                               |
+| tabedit %         | tabedit current file                                                            |
+| vim file +line    | Specific file line number when open file                                        |
+| <CTRL-V><Tab>     | Insert Tab                                                                      |
+| dd                | ["x]dd Delete [count] lines [into register x] linewise.                         |
+| cc                | ["x]cc Delete [count] lines [into register x] and start                         |
+|                   | insert linewise.  If 'autoindent' is on, preserve                               |
+|                   | the indent of the first line.                                                   |
+| caw               | change a word, aw – a word (includes surrounding white space)                   |
+| ciw               | change a inner word, iw – inner word (does not include surrounding white space) |
+|                   | as – a sentence                                                                 |
+|                   | is – inner sentence                                                             |
+|                   | ap – a paragraph                                                                |
+|                   | ip – inner paragraph                                                            |
+|                   | Strings                                                                         |
+|                   | a” – a double quoted string                                                     |
+|                   | i” – inner double quoted string                                                 |
+|                   | a’ – a single quoted string                                                     |
+|                   | i’ – inner single quoted string                                                 |
+|                   | a` – a back quoted string                                                       |
+|                   | i` – inner back quoted string                                                   |
+| d3k               | delete 3 upwards                                                                |
+| >>                | Indent line by shiftwidth spaces                                                |
+| <<                | De-indent line by shiftwidth spaces                                             |
+| 5>>               | Indent 5 lines                                                                  |
+| Vjj>              | Indent 3 lines                                                                  |
+| 5==               | Re-indent 5 lines                                                               |
+| >%                | Increase indent of a braced or bracketed block (place cursor on brace first)    |
+| =%                | Reindent a braced or bracketed block (cursor on brace)                          |
+| <%                | Decrease indent of a braced or bracketed block (cursor on brace)                |
+| ]p                | Paste text, aligning indentation with surroundings                              |
+| =i{               | Re-indent the 'inner block', i.e. the contents of the block                     |
+| =a{               | Re-indent 'a block', i.e. block and containing braces                           |
+| =2a{              | Re-indent '2 blocks', i.e. this block and containing block                      |
+| >i{               | Increase inner block indent                                                     |
+| <i{               | Decrease inner block indent                                                     |
+| CTRL-t            | In insert mode, insert indent at start of line                                  |
+| CTRL-d            | In insert mode, remove indent at start of line                                  |
+| 0 CTRL-d          | In insert mode, remove all indentation from line                                |
+| sudoedit          | Using sudoedit to avoid getting warning: "sudo vim" is detected. This           |
+|                   | feature is disabled.                                                            |
+|                   | A: Because neocomplete (and other plugins) creates temporary files              |
+|                   | in super user permission by sudo command. You must use sudo.vim                 |
+|                   | or set "Defaults always_set_home" in "/etc/sudoers", or must use                |
+|                   | "sudoedit" command.                                                             |
+| w!                | Force to write to disk when a file is read only.                                |
+| gt5               | shell program to display visual disk usage                                      |
+| tig               | ncurses-based Git repository browser                                            |
+| [range]j[lines]   | Merge mulitple lines into one line                                              |
+|                   | Add text to multiple lines in Vim                                               |
+| Ctrl-v Shift-i    | 1: At the beginning                                                             |
+|                   | Go to the first foo, press Ctrl-v to enter visual block modeg                   |
+|                   | and press down until all the lines with foo are marked. Theng                   |
+|                   | press Shift-i to insert at the beginning (of the block). Wheng                  |
+|                   | you are finished and press Esc, the inserted characters willg                   |
+|                   | be added to each line at the left of the marked block.g                         |
+| Ctrl-v $ Shift-a  | 2: At the end                                                                   |
+|                   | To insert at the end, press again Ctrl-v, move up/down to mark                  |
+|                   | all affected lines and then press End or $ to extend the                        |
+|                   | selection until the end of the lines. Now you can press                         |
+|                   | Shift-a to append at the end of all the lines, just like                        |
+|                   | previously with Shift-i.                                                        |
+| Ctrl-v % Shift-i  | 3: A whole block                                                                |
+|                   | The visual selection can also be done with normal movement commands.            |
+|                   | So to comment a whole block in C you could move to the opening brace            |
+|                   | and type Ctrl-v % Shift-i // Esc.                                               |
 
 * Custom setting
 | Shortcut             | Action                                                          |
