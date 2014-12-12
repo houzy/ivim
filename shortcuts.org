@@ -86,7 +86,7 @@
 | <Leader>jj           | goto next error                                                 |
 | <Leader>jk           | goto previous error                                             |
 | <Leader>je           | :tabedit %<CR>. Tabedit current file                            |
-| <Leader>jc           | :cd %:h. Change to current file's path                          |
+| <Leader>jp           | :cd %:h. Change to current file's path                          |
 | <leader>jd           | :YcmCompleter GoToDeclaration<CR>                               |
 | <leader>jg           | :YcmCompleter GoToDefinitionElseDeclaration<CR>                 |
 | <leader>jf           | :YcmForceCompileAndDiagnostics<CR>                              |

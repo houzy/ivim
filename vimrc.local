@@ -660,7 +660,7 @@ set pastetoggle=<leader>p
 nnoremap <Leader>je :tabedit %<CR>
 
 " Change to current file's path
-nnoremap <Leader>jc :cd %:h<CR>
+nnoremap <Leader>jp :cd %:h<CR>
 
 " vim orgmode: VimOrganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
