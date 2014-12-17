@@ -71,6 +71,8 @@
 |                   | The visual selection can also be done with normal movement commands.            |
 |                   | So to comment a whole block in C you could move to the opening brace            |
 |                   | and type Ctrl-v % Shift-i // Esc.                                               |
+| unimpaired        | Unimpaired defines a lot of commands that begin with '[' or ']', which          |
+|                   | are very convenient.                                                            |
 
 * Custom setting
 | Shortcut             | Action                                                          |
