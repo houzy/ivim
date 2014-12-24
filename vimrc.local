@@ -30,7 +30,7 @@ NeoBundle 'houzy/my-vim-snippets' " Snippets
 NeoBundle 'chrisbra/SudoEdit.vim'
 
 " DoxygenToolkit.vim
-NeoBundle 'segfo/DoxygenToolkit.vim'
+NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 
 " TODO
 "NeoBundle 'hewes/unite-gtags'
