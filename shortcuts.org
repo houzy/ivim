@@ -73,6 +73,12 @@
 |                   | and type Ctrl-v % Shift-i // Esc.                                               |
 | unimpaired        | Unimpaired defines a lot of commands that begin with '[' or ']', which          |
 |                   | are very convenient.                                                            |
+| g~                | Toggle case "HellO" to "hELLo" with g~ then a movement.                         |
+| gU                | Uppercase "HellO" to "HELLO" with gU then a movement.t.                         |
+| gu                | Lowercase "HellO" to "hello" with gu then a movement.t.                         |
+| visual mode       | Alternatively, you can visually select text thent.                              |
+|                   | press ~ to toggle case, or U to convert to uppercase,t.                         |
+|                   | or u to convert to lowercase.t.                                                 |
 
 * Custom setting
 | Shortcut             | Action                                                          |
