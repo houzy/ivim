@@ -30,7 +30,7 @@ NeoBundle 'houzy/my-vim-snippets' " Snippets
 NeoBundle 'chrisbra/SudoEdit.vim'
 
 " DoxygenToolkit.vim
-NeoBundle 'vim-scripts/DoxygenToolkit.vim'
+NeoBundle 'segfo/DoxygenToolkit.vim'
 
 " TODO
 "NeoBundle 'hewes/unite-gtags'
@@ -228,7 +228,7 @@ if has('lua') && g:ivim_completion_engine=='neocomplete'
                 endif
             endfunction
 
-            " <CR> close popup and save indent or expand snippet 
+            " <CR> close popup and save indent or expand snippet
             imap <expr> <CR> CleverCr()
             " <C-h>, <BS>: close popup and delete backword char.
             inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -364,7 +364,7 @@ elseif g:ivim_completion_engine=='neocomplete'
                 endif
             endfunction
 
-            " <CR> close popup and save indent or expand snippet 
+            " <CR> close popup and save indent or expand snippet
             imap <expr> <CR> CleverCr()
 
             " <CR>: close popup
@@ -612,6 +612,10 @@ let g:syntastic_python_pylint_args="-d C0103,C0111,C0301,C0326"
 let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
 let g:DoxygenToolkit_paramTag_pre="@Param  "
 let g:DoxygenToolkit_returnTag="@Returns  "
+let g:DoxygenToolkit_retvalTag ="@Retval  "
+let g:DoxygenToolkit_briefTag_post="- "
+let g:DoxygenToolkit_compactOneLineDoc="yes"
+"let g:DoxygenToolkit_commentType ="C++"
 let g:DoxygenToolkit_blockHeader="---------------------------------------------------------------------------"
 let g:DoxygenToolkit_blockFooter="---------------------------------------------------------------------------"
 let g:DoxygenToolkit_authorName="houzy"
