@@ -45,7 +45,7 @@ flags = [
 '-DNDEBUG',
 # You 100% do NOT need -DUSE_CLANG_COMPLETER in your flags; only the YCM
 # source code needs it.
-'-DUSE_CLANG_COMPLETER',
+#'-DUSE_CLANG_COMPLETER',
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
 # language to use when compiling headers. So it will guess. Badly. So C++
 # headers will be compiled as C headers. You don't want that so ALWAYS specify
@@ -178,14 +178,6 @@ def FlagsForFile( filename, **kwargs ):
     final_flags = MakeRelativePathsInFlagsAbsolute(
       compilation_info.compiler_flags_,
       compilation_info.compiler_working_dir_ )
-
-    # NOTE: This is just for YouCompleteMe; it's highly likely that your project
-    # does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
-    # ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
-    try:
-      final_flags.remove( '-stdlib=libc++' )
-    except ValueError:
-      pass
   else:
     relative_to = DirectoryOfThisScript()
     final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
@@ -194,3 +186,4 @@ def FlagsForFile( filename, **kwargs ):
     'flags': final_flags,
     'do_cache': True
   }
+
