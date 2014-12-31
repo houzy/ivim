@@ -666,6 +666,11 @@ nnoremap <Leader>je :tabedit %<CR>
 " Change to current file's path
 nnoremap <Leader>jp :cd %:h<CR>
 
+" Fast edit the .vimrc file using ,x
+nnoremap <Leader>x :tabedit $MYVIMRC<CR>
+nnoremap <Leader>xl :tabedit $HOME/.vimrc.local<CR>
+nnoremap <Leader>xs :tabedit $HOME/ivim/shortcuts.org<CR>
+
 " vim orgmode: VimOrganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org :GitGutterDisable

@@ -108,6 +108,9 @@
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |
 | <Leader>n            | :set relativenumber!<CR>. Toggle relativenumber                 |
 | <C-k>                | Jump to next snippet point                                      |
+| <Leader>x            | :tabedit $MYVIMRC<CR>                                           |
+| <Leader>xl           | :tabedit $HOME/.vimrc.local<CR>                                 |
+| <Leader>xs           | :tabedit $HOME/ivim/shortcuts.org<CR>                           |
 autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
 
 * Key Mapping
