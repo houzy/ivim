@@ -678,6 +678,12 @@ au BufEnter *.org call org#SetOrgFileType()
 au BufEnter *.org set wrap
 au BufEnter *.org set textwidth=0
 
+" python .py
+aug python
+    " ftype/python.vim overwrites this
+    au FileType python setlocal ts=4 sts=4 sw=4 expandtab
+aug end
+
 " }}}
 
 " vim:set et fdm=marker:
