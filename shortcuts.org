@@ -79,6 +79,9 @@
 | visual mode       | Alternatively, you can visually select text thent.                              |
 |                   | press ~ to toggle case, or U to convert to uppercase,t.                         |
 |                   | or u to convert to lowercase.t.                                                 |
+| gdefault          | When on, the ":substitute" flag 'g' is default on. s/a/b/ means s/a/b/g.        |
+|                   | When a 'g' flag is given to a ":substitute" command, this will toggle           |
+|                   | the substitution of all or one match.                                           |
 
 * Custom setting
 | Shortcut             | Action                                                          |
