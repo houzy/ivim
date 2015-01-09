@@ -89,7 +89,9 @@
 * Custom setting
 | Shortcut             | Action                                                          |
 |----------------------+-----------------------------------------------------------------|
-| <leader>p            | Toggles paste mode.                                             |
+| <leader>c            | Toggles paste mode.                                             |
+| <leader>p            | "0p paste after cursor in vim without overwriting last yank     |
+| <leader>P            | "0P paste before cursor in vim without overwriting last yank    |
 | :g/^$/d              | Delete blank lines.                                             |
 | <LocalLeader><Space> | Map \<Space> to commenting                                      |
 | <Leader>jgt          | :GitGutterToggle<CR>                                            |
