@@ -82,6 +82,9 @@
 | gdefault          | When on, the ":substitute" flag 'g' is default on. s/a/b/ means s/a/b/g.        |
 |                   | When a 'g' flag is given to a ":substitute" command, this will toggle           |
 |                   | the substitution of all or one match.                                           |
+| "0p               | paste in vim without overwriting last yank, last yanked text is in register 0   |
+| "_d               | delete in vim without overwriting last yank, _ register, the black hole         |
+| q: or q/          | command-line window: q: for commands, or q/ for searches                        |
 
 * Custom setting
 | Shortcut             | Action                                                          |
