@@ -1,14 +1,16 @@
 " NeoBundle settings {{{
 
-NeoBundle 'mbbill/fencview' " Enhance fileencoding detect
-NeoBundle 'guns/xterm-color-table.vim'
+" NeoBundle 'mbbill/fencview' " Enhance fileencoding detect
+" NeoBundle 'guns/xterm-color-table.vim'
+" NeoBundle 'tpope/vim-ragtag'
+" NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
+
+" an excellent calendar app, has the same command with calendar-vim
+" NeoBundle 'itchyny/calendar.vim'
+
 NeoBundle 'houzy/jeffy-plugins'
-NeoBundle 'tpope/vim-ragtag'
-NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
 NeoBundle 'vim-scripts/restore_view.vim'
 NeoBundle 'vim-scripts/VisIncr'
-" an excellent calendar app, has the same command with calendar-vim
-"NeoBundle 'itchyny/calendar.vim'
 
 " orgmode
 NeoBundle 'hsitz/VimOrganizer'
