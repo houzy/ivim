@@ -70,6 +70,7 @@ set textwidth=0             " do not wrap words (insert)
 
 set copyindent
 set smarttab
+set smartindent
 set tabstop=4               " An indentation every four columns
 "set cinoptions=:0,l1,g0,t0,(0,(s    " C kind language indent options
 
