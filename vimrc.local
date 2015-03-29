@@ -34,9 +34,6 @@ NeoBundle 'chrisbra/SudoEdit.vim'
 " DoxygenToolkit.vim
 NeoBundle 'segfo/DoxygenToolkit.vim'
 
-" detectindent
-NeoBundle 'ciaranm/detectindent'
-
 " TODO
 "NeoBundle 'hewes/unite-gtags'
 "NeoBundle 'shibuyanorailgun/gtags.vim'
@@ -638,12 +635,6 @@ let g:doxygen_enhanced_color=1
 " goto next or previous error
 nmap <leader>jj :lnext<cr>
 nmap <leader>jk :lprev<cr>
-
-" detectindent
-let g:detectindent_preferred_expandtab = 1
-let g:detectindent_preferred_indent = 4
-let g:detectindent_preferred_when_mixed = 1
-let g:detectindent_max_lines_to_analyse = 1024
 
 " vim-indent-guides
 " Toggle vim-indent-guides
