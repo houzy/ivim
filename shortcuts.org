@@ -111,6 +111,8 @@
 | <leader>jf           | :YcmForceCompileAndDiagnostics<CR>                              |
 | <leader>jh           | :YcmDiags<CR>                                                   |
 | <Leader>jl           | let g:ycm_key_detailed_diagnostics = '<leader>jl'               |
+| <Leader>jt           | :call TabToggle()<CR>, toggle expandtab                         |
+| <Leader>jT           | :DetectIndent<CR>, run DetectIndent command                     |
 | <C-c>                | "+y. ctrl+c default function: leave insert mode, similar to esc |
 | <Leader><Space>      | :set hlsearch!<CR>. Toggle the highlight search                 |
 | <Leader>x            | :tabedit $MYVIMRC<CR>. Fast edit the .vimrc file using ,x       |

@@ -34,6 +34,11 @@ NeoBundle 'chrisbra/SudoEdit.vim'
 " DoxygenToolkit.vim
 NeoBundle 'segfo/DoxygenToolkit.vim'
 
+" Detecting tabs or spaces
+"NeoBundle 'vim-scripts/IndentConsistencyCop'
+NeoBundle 'ciaranm/detectindent'
+"NeoBundle 'tpope/vim-sleuth'
+
 " TODO
 "NeoBundle 'hewes/unite-gtags'
 "NeoBundle 'shibuyanorailgun/gtags.vim'
@@ -660,10 +665,36 @@ let g:gitgutter_enabled = 1
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
 
+" ciaranm/detectindent
+let g:detectindent_preferred_expandtab = 1
+let g:detectindent_preferred_indent = 4
+let g:detectindent_preferred_when_mixed = 1
+let g:detectindent_max_lines_to_analyse = 4096
+nnoremap <Leader>jT :DetectIndent<CR>
+autocmd WinEnter,BufEnter,VimEnter * DetectIndent
+
 " Toggle paste mode
 set pastetoggle=<leader>c
+
+" Paste in vim without overwriting last yank, last yanked text is in register 0
 noremap  <leader>p  "0p
 noremap  <leader>P  "0P
+
+" Toggle expandtab
+function! TabToggle()
+    if &expandtab
+        " set shiftwidth=8
+        " set softtabstop=0
+        set noexpandtab
+        echo 'noexpandtab'
+    else
+        " set shiftwidth=4
+        " set softtabstop=4
+        set expandtab
+        echo 'expandtab'
+    endif
+endfunction
+nnoremap <Leader>jt :call TabToggle()<CR>
 
 " Tabedit current file
 nnoremap <Leader>je :tabedit %<CR>
