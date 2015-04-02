@@ -36,7 +36,8 @@ NeoBundle 'segfo/DoxygenToolkit.vim'
 
 " Detecting tabs or spaces
 "NeoBundle 'vim-scripts/IndentConsistencyCop'
-NeoBundle 'ciaranm/detectindent'
+"NeoBundle 'ciaranm/detectindent'
+NeoBundle 'roryokane/detectindent'
 "NeoBundle 'tpope/vim-sleuth'
 
 " TODO
@@ -667,12 +668,19 @@ let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
 
 " ciaranm/detectindent
+" roryokane/detectindent
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 4
 let g:detectindent_preferred_when_mixed = 1
 let g:detectindent_max_lines_to_analyse = 4096
 nnoremap <Leader>jT :DetectIndent<CR>
 autocmd WinEnter,BufEnter,VimEnter * DetectIndent
+let g:detectindent_min_indent = 2
+let g:detectindent_max_indent = 8
+augroup DetectIndent
+    autocmd!
+    autocmd BufReadPost *  DetectIndent
+augroup END
 
 " Toggle paste mode
 set pastetoggle=<leader>c
