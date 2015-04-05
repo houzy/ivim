@@ -684,3 +684,11 @@ If you don't want pasta to override default p and P mappings you can change it l
   let g:pasta_paste_before_mapping = ',P'
   let g:pasta_paste_after_mapping = ',p'
 
+* vim-multiple-cursors
+  | Shortcut | Action   |
+  |----------+----------|
+  | C-n      | Next key |
+  | C-p      | Prev key |
+  | C-x      | Skip key |
+  | esc      | Quit key |
+
