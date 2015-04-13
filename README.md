@@ -24,9 +24,9 @@
 
 ***Efficient***
 
- * Make using Vim more convenient and faster, and lots of useful plugins (such as [Neocomplcache](https://github.com/Shougo/neocomplcache), [NERD_commenter](https://github.com/scrooloose/nerdcommenter), [Syntastic](https://github.com/scrooloose/syntastic)) confirm a better performance of Vim.
+ * Make using Vim more convenient and faster, and lots of useful plugins confirm a better performance of Vim.
 
- * To view the full plugin list, please consult [here](https://github.com/kepbod/ivim/blob/master/vimrc#L132)
+ * To view the full plugin list, please refer [here](https://github.com/kepbod/ivim/blob/master/vimrc#L132).
 
 ## Requirements
 
@@ -42,7 +42,7 @@
 
  * Ctags generates an index (or tag) file of language objects found in source files that allows these items to be quickly and easily located by a text editor or other utility. I recommend you to use [Exuberant Ctags](http://ctags.sourceforge.net/).
 
-*To use this distribution with less bugs, please get more suggestions from [here](https://github.com/kepbod/ivim/wiki/Tips-for-ivim)*
+*To use this distribution with less bugs, please get more suggestions from [here](https://github.com/kepbod/ivim/wiki/Tips-for-ivim).*
 
 ## Installation
 
@@ -87,7 +87,10 @@ There are some options you could set through `.vimrc` to configure ivim:
 * g:ivim_autocomplete -- autocomplete engine (NEO: neocomplete/neocomplcache/neosnippet, YCM: YouCompleteMe/UltiSnips)
 * g:ivim_bundle_groups -- plugin groups ('ui', 'enhance', 'move', 'navigate', 'complete', 'compile', 'git', 'language')
 
-*This distribution is completely customisable using a `~/.vimrc.local`, `~/.gvimrc.local`, `~/.vimrc.ivim.local` and `~/.vimrc.bundles.local`!*
+###Note
+
+* This distribution is completely customisable using a `~/.vimrc.local`, `~/.gvimrc.local`, `~/.vimrc.ivim.local` and `~/.vimrc.bundles.local`!
+* To make full use of auto-completion and syntax checking, please refer [wiki](https://github.com/kepbod/ivim/wiki/Auto-completion-and-syntax-checking).
 
 ## Vim Tips
 
@@ -122,4 +125,4 @@ There are some options you could set through `.vimrc` to configure ivim:
 
 ## License
 
-Copyright (C) 2012-2014 Xiao-Ou Zhang and contributors. See the [LICENSE](https://github.com/kepbod/ivim/blob/master/LICENSE.txt) file for license rights and limitations (MIT)
+Copyright (C) 2012-2015 Xiao-Ou Zhang and contributors. See the [LICENSE](https://github.com/kepbod/ivim/blob/master/LICENSE.txt) file for license rights and limitations (MIT)
