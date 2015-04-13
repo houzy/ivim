@@ -692,3 +692,13 @@ If you don't want pasta to override default p and P mappings you can change it l
   | C-x      | Skip key |
   | esc      | Quit key |
 
+* VisIncr
+  :h visincr
+  | Shortcut        | Action                                                    |
+  |-----------------+-----------------------------------------------------------|
+  | :I [#]          | will use the first line's number as a starting point      |
+  |                 | default increment (#) is 1, will justify left (pad right) |
+  | :II [# [zfill]] | will use the first line's number as a starting point      |
+  |                 | default increment (#) is 1, will justify right (pad left) |
+  | :IO or :IIO     | octal incrementing                                        |
+  | :IX or :IIX     | hexadecimal incrementing                                  |
