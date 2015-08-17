@@ -617,6 +617,17 @@ let g:gitgutter_max_signs = 4000
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
 
+" quick-scope
+" GUI vim
+"let g:qs_first_occurrence_highlight_color = '#afff5f'
+"let g:qs_second_occurrence_highlight_color = '#5fffff'
+" Terminal Vim
+let g:qs_first_occurrence_highlight_color = 155
+let g:qs_second_occurrence_highlight_color = 81
+" :QuickScopeToggle
+" nmap <leader>q <plug>(QuickScopeToggle)
+" vmap <leader>q <plug>(QuickScopeToggle)
+
 " ciaranm/detectindent
 " roryokane/detectindent
 let g:detectindent_preferred_expandtab = 1
