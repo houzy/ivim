@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-app_dir=$(dirname $(readlink -f $0))
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    app_dir=$(dirname $(greadlink -f $0))
+else
+    app_dir=$(dirname $(readlink -f $0))
+fi
 
 debug_mode='0'
 fork_maintainer='0'
@@ -94,18 +98,18 @@ case $1 in
         ln -sf "$HOME/vimrc/.vimrc" "$HOME/.vimrc"
         ln -sf "$HOME/vimrc/.vim" "$HOME/.vim"
         ;;
-    vimrcVundle )
+    vundle )
         echo 'using vimrcVundle'
         clean_symlinks
         ln -sf "$HOME/vimrcVundle/.vimrc" "$HOME/.vimrc"
         ln -sf "$HOME/vimrcVundle/.vim" "$HOME/.vim"
         ;;
-    vimrcivim )
+    ivim )
         echo 'using vimrcivim'
         clean_symlinks
         create_symlinks
         ;;
     *)
-        echo 'input: vimrc, vimrcVundle or vimrcivim'
+        echo 'input: vimrc, vundle or ivim'
         ;;
 esac
