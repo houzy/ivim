@@ -88,6 +88,9 @@
 | q: or q/          | command-line window: q: for commands, or q/ for searches                        |
 | spaces to tabs    | :set tabstop=4; :set noexpandtab; :%retab!                                      |
 | tabs to spaces    | :set tabstop=4 shiftwidth=4 expandtab; :retab                                   |
+| :noh              | To turn off highlighting until the next search                                  |
+| :set nohlsearch   | Turn off highlighting completely                                                |
+| :set hlsearch!    | To toggle it                                                                    |
 
 * Custom setting
 | Shortcut             | Action                                                          |
