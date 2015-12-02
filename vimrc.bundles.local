@@ -40,6 +40,14 @@ NeoBundle 'segfo/DoxygenToolkit.vim'
 NeoBundle 'roryokane/detectindent'
 "NeoBundle 'tpope/vim-sleuth'
 
+" fcitx-vim-osx
+if has("unix")
+    let s:uname = substitute(system("uname -s"), '\n', '', '')
+    if s:uname == "Darwin"
+        NeoBundle 'CodeFalling/fcitx-vim-osx'
+    endif
+endif
+
 " TODO
 "NeoBundle 'hewes/unite-gtags'
 "NeoBundle 'shibuyanorailgun/gtags.vim'
