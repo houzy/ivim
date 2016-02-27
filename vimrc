@@ -6,9 +6,9 @@
 "   /_/ |___/_/_/ /_/ /_/
 "
 "   Main Contributor: Xiao-Ou Zhang (kepbod) <kepbod@gmail.com>
-"   Version: 2.0
+"   Version: 2.1
 "   Created: 2012-01-20
-"   Last Modified: 2015-08-07
+"   Last Modified: 2016-02-22
 "
 "   Sections:
 "     -> ivim Setting
@@ -38,11 +38,12 @@
 let g:ivim_user='Xiao-Ou Zhang' " User name
 let g:ivim_email='kepbod@gmail.com' " User email
 let g:ivim_github='https://github.com/kepbod' " User github
-" ivim UI setting
-let g:ivim_default_scheme=1 " Enable color settings adapted for hybrid
+" ivim color settings (hybrid or gruvbox)
+let g:ivim_default_scheme='hybrid'
+" ivim ui setting
 let g:ivim_fancy_font=1 " Enable using fancy font
 let g:ivim_show_number=1 " Enable showing number
-" ivim Autocomplete setting (YCM or NEO)
+" ivim autocomplete setting (YCM or NEO)
 let g:ivim_autocomplete='NEO'
 " ivim plugin setting
 let g:ivim_bundle_groups=['ui', 'enhance', 'move', 'navigate',
@@ -143,7 +144,7 @@ set viewoptions-=options " in case of mapping change
 if has('vim_starting')
     set nocompatible
     set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
-    let g:neobundle#install_process_timeout=600
+    let g:neobundle#install_process_timeout=1500
 endif
 
 call neobundle#begin(expand($HOME . '/.vim/bundle/'))
@@ -152,10 +153,10 @@ call neobundle#begin(expand($HOME . '/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 if count(g:ivim_bundle_groups, 'ui') " UI setting
-    NeoBundle 'w0ng/vim-hybrid' " Colorscheme hybrid
-    NeoBundle 'altercation/vim-colors-solarized' " Colorscheme solarized
-    NeoBundle 'chriskempson/base16-vim' " Colorscheme base16
-    NeoBundle 'bling/vim-airline' " Status line
+    NeoBundle 'mrhooray/vim-hybrid' " Colorscheme hybrid
+    NeoBundle 'morhetz/gruvbox' " Colorscheme gruvbox
+    NeoBundle 'vim-airline/vim-airline' " Status line
+    NeoBundle 'vim-airline/vim-airline-themes' " Status line theme
     NeoBundle 'bling/vim-bufferline' " Buffer line
     NeoBundle 'nathanaelkane/vim-indent-guides' " Indent guides
     NeoBundle 'mhinz/vim-startify' " Start page
@@ -173,6 +174,7 @@ if count(g:ivim_bundle_groups, 'enhance') " Vim enhancement
     NeoBundle 'mbbill/undotree' " Undo tree
     NeoBundle 'tpope/vim-surround' " Surround
     NeoBundle 'godlygeek/tabular' " Tabular
+    NeoBundle 'ludovicchabant/vim-gutentags' " Manage tag files
     NeoBundle 'AndrewRadev/splitjoin.vim' " Splitjoin
     NeoBundle 'sickill/vim-pasta' " Vim pasta
     NeoBundle 'Keithbsmiley/investigate.vim' " Helper
@@ -319,6 +321,10 @@ function! MyTabLine()
     let s.=(tabpagenr('$')>1 ? '%999XX' : 'X')
     return s
 endfunction
+" Set tabline colorscheme
+if g:ivim_default_scheme=='gruvbox'
+    let g:gruvbox_invert_tabline=1
+endif
 " Set up tab tooltips with each buffer name
 set guitabtooltip=%F
 
@@ -326,7 +332,12 @@ set guitabtooltip=%F
 if count(g:ivim_bundle_groups, 'ui')
     set laststatus=2 " Show the statusline
     set noshowmode " Hide the default mode text
-    let g:airline_theme='bubblegum'
+    " Set status line colorscheme
+    if g:ivim_default_scheme=='gruvbox'
+        let g:airline_theme='gruvbox'
+    elseif g:ivim_default_scheme=='hybrid'
+        let g:airline_theme='bubblegum'
+    endif
     set ttimeoutlen=50
     let g:bufferline_echo=0
     let g:bufferline_modified='[+]'
@@ -401,7 +412,11 @@ endif
 
 " Load a colorscheme
 if count(g:ivim_bundle_groups, 'ui')
-    colorscheme hybrid
+    if g:ivim_default_scheme=='gruvbox'
+        colorscheme gruvbox
+    elseif g:ivim_default_scheme=='hybrid'
+        colorscheme hybrid
+    endif
 else
     colorscheme desert
 endif
@@ -603,7 +618,7 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
 if count(g:ivim_bundle_groups, 'ui')
 
     " -> Indent Guides
-    if !has('gui_running') && g:ivim_default_scheme
+    if !has('gui_running') && g:ivim_default_scheme=='hybrid'
         let g:indent_guides_auto_colors=0
         autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
         autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
@@ -714,6 +729,10 @@ if count(g:ivim_bundle_groups, 'enhance')
 
     " -> investigate.vim
     nnoremap K :call investigate#Investigate()<CR>
+    let g:investigate_use_dash=1
+
+    " -> EnhancedDiff
+    let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 
 endif
 
@@ -858,20 +877,6 @@ if count(g:ivim_bundle_groups, 'compile')
     " -> Singlecompile
     nnoremap <Leader>r :SingleCompileRun<CR>
     let g:SingleCompile_showquickfixiferror=1
-    function! ChoosePythonCompiler()
-        echo 'Please choose python compiler:\n'
-        echo '1. Python2+\n'
-        echo '2. Python3+\n'
-        let flag=getchar()
-        if flag==49
-            call SingleCompile#ChooseCompiler('python', 'python')
-            execute 'SingleCompileRun'
-        elseif flag==50
-            call SingleCompile#ChooseCompiler('python', 'python3')
-            execute 'SingleCompileRun'
-        endif
-    endfunction
-    autocmd filetype python nnoremap <buffer> <Leader>r :call ChoosePythonCompiler()<CR>
 
 endif
 

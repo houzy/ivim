@@ -4,6 +4,7 @@ help() {
     echo "setup.sh -- setup ivim"
     echo "Usage: setup.sh -i/-n"
     echo "-i -- install ivim"
+    echo "-m -- install mini ivim"
     echo "-n -- update ivim"
     exit 0
 }
@@ -50,7 +51,11 @@ install() {
     color_print "Cloning ivim..."
     rm -rf $HOME/ivim
     git clone https://github.com/houzy/ivim.git $HOME/ivim
-    ln -sf $HOME/ivim/vimrc $HOME/.vimrc
+    if [ $1 = 1 ]; then
+        ln -sf $HOME/ivim/vimrc $HOME/.vimrc
+    else
+        ln -sf $HOME/ivim/vimrc_mini $HOME/.vimrc
+    fi
     mkdir $HOME/ivim/.vim
     ln -sf $HOME/ivim/.vim $HOME/.vim
     color_print "Installing NeoBundle..."
@@ -71,13 +76,19 @@ if [ $# -ne 1 ]; then
     help
 fi
 
-while getopts ":in" opts; do
+while getopts ":imn" opts; do
     case $opts in
         i)
             logo
             require
             backup
-            install
+            install 1
+            ;;
+        m)
+            logo
+            require
+            backup
+            install 0
             ;;
         n)
             update
