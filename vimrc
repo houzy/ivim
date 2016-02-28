@@ -174,7 +174,6 @@ if count(g:ivim_bundle_groups, 'enhance') " Vim enhancement
     NeoBundle 'mbbill/undotree' " Undo tree
     NeoBundle 'tpope/vim-surround' " Surround
     NeoBundle 'godlygeek/tabular' " Tabular
-    NeoBundle 'ludovicchabant/vim-gutentags' " Manage tag files
     NeoBundle 'AndrewRadev/splitjoin.vim' " Splitjoin
     NeoBundle 'sickill/vim-pasta' " Vim pasta
     NeoBundle 'Keithbsmiley/investigate.vim' " Helper

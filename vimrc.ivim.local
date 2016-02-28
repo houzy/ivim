@@ -5,15 +5,18 @@ let g:ivim_user='houzy' " User name
 let g:ivim_email='h-zy2008@hotmail.com' " User email
 let g:ivim_github='https://github.com/houzy' " User github
 " ivim UI setting
-let g:ivim_default_scheme=1 " Enable color settings adapted for hybrid
+let g:ivim_default_scheme='hybrid' " ivim color settings (hybrid or gruvbox)
 let g:ivim_fancy_font=1 " Enable using fancy font
 let g:ivim_show_number=1 " Enable showing number
 " ivim Autocomplete setting (YCM or NEO)
 let g:ivim_autocomplete='NEO'
 " ivim plugin setting
 let g:ivim_bundle_groups=['ui', 'enhance', 'move', 'navigate',
-            \'complete', 'compile', 'git', 'language']
+            \'complete', 'compile', 'git']
 
 " }}}
+
+let g:ivim_autocomplete='YCM'
+let g:ivim_default_scheme='hybrid'
 
 " vim:set et fdm=marker:
