@@ -43,24 +43,20 @@ create_symlinks() {
 
     endpath="$app_dir"
 
-    lnif "$endpath/vimrc"              "$HOME/.vimrc"
-    lnif "$endpath/.vim"                "$HOME/.vim"
+    if [ $1 = 1 ]; then
+        lnif    "$endpath/vimrc"  "$HOME/.vimrc"
+        lnif    "$endpath/vimrc.local" "$HOME/.vimrc.local"
+        lnif    "$endpath/vimrc.ivim.local" "$HOME/.vimrc.ivim.local"
+        lnif    "$endpath/vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
+    else
+        lnif    "$endpath/vimrc_mini"  "$HOME/.vimrc"
+    fi
+
+    lnif    "$endpath/.vim"   "$HOME/.vim"
 
     # Useful for fork maintainers
-    if [ -e "$endpath/vimrc.local" ]; then
-        ln -sf "$endpath/vimrc.local" "$HOME/.vimrc.local"
-    fi
-
-    if [ -e "$endpath/vimrc.ivim.local" ]; then
-        ln -sf "$endpath/vimrc.ivim.local" "$HOME/.vimrc.ivim.local"
-    fi
-
     if [ -e "$endpath/gvimrc.local" ]; then
         ln -sf "$endpath/gvimrc.local" "$HOME/.gvimrc.local"
-    fi
-
-    if [ -e "$endpath/vimrc.bundles.local" ]; then
-        ln -sf "$endpath/vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
     fi
 
     ret="$?"
@@ -107,7 +103,12 @@ case $1 in
     ivim )
         echo 'using vimrcivim'
         clean_symlinks
-        create_symlinks
+        create_symlinks 1
+        ;;
+    ivimmini )
+        echo 'using vimrcivimmini'
+        clean_symlinks
+        create_symlinks 0
         ;;
     *)
         echo 'input: vimrc, vundle or ivim'
