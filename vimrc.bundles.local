@@ -40,11 +40,12 @@ NeoBundle 'segfo/DoxygenToolkit.vim'
 NeoBundle 'roryokane/detectindent'
 "NeoBundle 'tpope/vim-sleuth'
 
-" fcitx-vim-osx
+" need: CodeFalling/fcitx-remote-for-osx
+" brew install fcitx-remote-for-osx --with-input-method=baidu-pinyin
 if has("unix")
     let s:uname = substitute(system("uname -s"), '\n', '', '')
     if s:uname == "Darwin"
-        NeoBundle 'CodeFalling/fcitx-vim-osx'
+        NeoBundle 'lilydjwg/fcitx.vim'
     endif
 endif
 
