@@ -45,7 +45,7 @@ NeoBundle 'roryokane/detectindent'
 if has("unix")
     let s:uname = substitute(system("uname -s"), '\n', '', '')
     if s:uname == "Darwin"
-        NeoBundle 'lilydjwg/fcitx.vim'
+        NeoBundle 'CodeFalling/fcitx-vim-osx'
     endif
 endif
 
