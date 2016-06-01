@@ -558,7 +558,7 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 " pylint --list-msgs: show all codes
 let g:syntastic_python_pylint_args="-E"
 " or
-let g:syntastic_python_pylint_args="-d C0103,C0111,C0301,C0326"
+let g:syntastic_python_pylint_args="-d C0103,C0111,C0301,C0326,R0201"
 " the following two lines setting will silence all warnings, except for the ones produced by "pylint"
 "let g:syntastic_quiet_messages = { "level": "warnings" }
 "let g:syntastic_python_pylint_quiet_messages = { "level" : [] }
