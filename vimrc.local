@@ -701,6 +701,22 @@ aug python
     au FileType python setlocal ts=4 sts=4 sw=4 expandtab
 aug end
 
+" neovimhaskell/haskell-vim
+"let g:haskell_enable_quantification = 1 to enable highlighting of forall
+"let g:haskell_enable_recursivedo = 1 to enable highlighting of mdo and rec
+"let g:haskell_enable_arrowsyntax = 1 to enable highlighting of proc
+"let g:haskell_enable_pattern_synonyms = 1 to enable highlighting of pattern
+"let g:haskell_enable_typeroles = 1 to enable highlighting of type roles
+"let g:haskell_enable_static_pointers = 1 to enable highlighting of static
+let g:haskell_enable_quantification = 1
+let g:haskell_enable_recursivedo = 1
+let g:haskell_enable_arrowsyntax = 1
+let g:haskell_enable_pattern_synonyms = 1
+let g:haskell_enable_typeroles = 1
+let g:haskell_enable_static_pointers = 1
+
+let g:haskell_classic_highlighting = 0
+
 " }}}
 
 " vim:set et fdm=marker:

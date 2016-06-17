@@ -50,6 +50,7 @@ if has("unix")
 endif
 
 " Haskell
+NeoBundle 'neovimhaskell/haskell-vim'
 NeoBundle 'eagletmt/neco-ghc'
 
 " TODO
