@@ -49,6 +49,9 @@ if has("unix")
     endif
 endif
 
+" Haskell
+NeoBundle 'eagletmt/neco-ghc'
+
 " TODO
 "NeoBundle 'hewes/unite-gtags'
 "NeoBundle 'shibuyanorailgun/gtags.vim'
