@@ -1,62 +1,62 @@
-" NeoBundle settings {{{
+" Plug settings {{{
 
-" NeoBundle 'mbbill/fencview' " Enhance fileencoding detect
-" NeoBundle 'guns/xterm-color-table.vim'
-" NeoBundle 'tpope/vim-ragtag'
-" NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
+" Plug 'mbbill/fencview' " Enhance fileencoding detect
+" Plug 'guns/xterm-color-table.vim'
+" Plug 'tpope/vim-ragtag'
+" Plug 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
 
 " an excellent calendar app, has the same command with calendar-vim
-" NeoBundle 'itchyny/calendar.vim'
+" Plug 'itchyny/calendar.vim'
 
-NeoBundle 'houzy/jeffy-plugins'
-NeoBundle 'vim-scripts/restore_view.vim'
-NeoBundle 'vim-scripts/VisIncr'
+Plug 'houzy/jeffy-plugins'
+Plug 'vim-scripts/restore_view.vim'
+Plug 'vim-scripts/VisIncr'
 
 " orgmode
-NeoBundle 'hsitz/VimOrganizer'
-NeoBundle 'mattn/calendar-vim'
-NeoBundle 'chrisbra/NrrwRgn'
-NeoBundle 'vim-scripts/utl.vim'
+Plug 'hsitz/VimOrganizer'
+Plug 'mattn/calendar-vim'
+Plug 'chrisbra/NrrwRgn'
+Plug 'vim-scripts/utl.vim'
 
 " vimshell
 " Require Shougo/vimproc
-NeoBundle 'Shougo/vimshell.vim'
+Plug 'Shougo/vimshell.vim'
 
 " gruvbox color scheme
-NeoBundle 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " Snippets
-NeoBundle 'houzy/my-vim-snippets' " Snippets
+Plug 'houzy/my-vim-snippets' " Snippets
 
 " SudoEdit.vim
-NeoBundle 'chrisbra/SudoEdit.vim'
+Plug 'chrisbra/SudoEdit.vim'
 
 " DoxygenToolkit.vim
-NeoBundle 'segfo/DoxygenToolkit.vim'
+Plug 'segfo/DoxygenToolkit.vim'
 
 " Detecting tabs or spaces
-"NeoBundle 'vim-scripts/IndentConsistencyCop'
-"NeoBundle 'ciaranm/detectindent'
-NeoBundle 'roryokane/detectindent'
-"NeoBundle 'tpope/vim-sleuth'
+"Plug 'vim-scripts/IndentConsistencyCop'
+"Plug 'ciaranm/detectindent'
+Plug 'roryokane/detectindent'
+"Plug 'tpope/vim-sleuth'
 
 " need: CodeFalling/fcitx-remote-for-osx
 " brew install fcitx-remote-for-osx --with-input-method=baidu-pinyin
 if has("unix")
     let s:uname = substitute(system("uname -s"), '\n', '', '')
     if s:uname == "Darwin"
-        NeoBundle 'CodeFalling/fcitx-vim-osx'
+        Plug 'CodeFalling/fcitx-vim-osx'
     endif
 endif
 
 " Haskell
-NeoBundle 'neovimhaskell/haskell-vim'
-NeoBundle 'eagletmt/neco-ghc'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'eagletmt/neco-ghc'
 
 " TODO
-"NeoBundle 'hewes/unite-gtags'
-"NeoBundle 'shibuyanorailgun/gtags.vim'
-"NeoBundle 'junegunn/vim-easy-align'
-"NeoBundle 'junegunn/goyo.vim'
+"Plug 'hewes/unite-gtags'
+"Plug 'shibuyanorailgun/gtags.vim'
+"Plug 'junegunn/vim-easy-align'
+"Plug 'junegunn/goyo.vim'
 
 " }}}
