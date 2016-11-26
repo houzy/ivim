@@ -8,49 +8,36 @@
 /_/ |___/_/_/ /_/ /_/  
 ```
 
-**Version: 2.1**
+**Version: 3.0**
 
-**New: You could install the minimum ivim now for fast and basic usage!!!**
+After 4 years' development, ivim contains 3 versions to satisfy different requirements.
 
-> ivim mini only supports terminal vim, and speeds up startup time through loading
-> fewer plugins.
->
-> Install:
->
-> `bash <(curl -L https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh) -m`
->
-> or
->
-> `bash <(wget --no-check-certificate https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh -O -) -m`
->
-> See more information from https://github.com/kepbod/ivim/blob/master/vimrc_mini
+* [ivim](https://github.com/kepbod/ivim/blob/master/vimrc): highly customizable vim configuration, and it has more [colorschemes](https://github.com/kepbod/ivim/wiki/Colorscheme) and [settings](https://github.com/kepbod/ivim/wiki/Customization).
+* [ivim_mini](https://github.com/kepbod/ivim/blob/master/vimrc_mini): vim configuration with fast startup time and convenient usage, compatible with Vim 8.0 and NeoVim.
 
+If you love ivim, welcome to [buy me a cup of coffee :coffee:](https://www.paypal.me/kepbod). Thx!!!
 
 ## Features
 
 ***Beautiful***
 
-Use lots of famous colorschemes to make your eyes feel comfortable in both Vim and MacVim/gVim.
+Use lots of famous colorschemes to make your eyes feel comfortable in both Vim and NeoVim.
 
- * [Hybrid](https://github.com/mrhooray/vim-hybrid)(default)
+![ivim](https://raw.githubusercontent.com/kepbod/ivim/master/snapshot/ivim.jpeg)
 
-![snapshot1](https://raw.githubusercontent.com/kepbod/ivim/master/snapshot1.jpg)
-
- * [Gruvbox](https://github.com/morhetz/gruvbox)
-
-![snapshot2](https://raw.githubusercontent.com/kepbod/ivim/master/snapshot2.jpg)
+**You could install the patched font from [vim-devicons](https://github.com/ryanoasis/vim-devicons).**
 
 ***Efficient***
 
  * Make using Vim more convenient and faster, and lots of useful plugins confirm a better performance of Vim.
 
- * To view the full plugin list, please refer [here](https://github.com/kepbod/ivim/blob/master/vimrc#L140).
+ * To view the full plugin list, please refer [here](https://github.com/kepbod/ivim/blob/master/vimrc#L133).
 
 ## Requirements
 
 **Vim**
 
- * This distribution is adapted to both [Vim](http://www.vim.org/download.php) and [MacVim](http://www.vim.org/download.php#mac)/[gVim](http://www.vim.org/download.php#pc). Remember that the Vim/MacVim/gVim version should be 7.3+, or errors would occur!
+ * This distribution is adapted to both [Vim](http://www.vim.org/download.php) and [NeoVim](https://neovim.io). For Vim, version should be 7.3+, and 8.0+ is recommended. For NeoVim, 0.1.5+ is recommended.
 
 **Git**
 
@@ -64,51 +51,45 @@ Use lots of famous colorschemes to make your eyes feel comfortable in both Vim a
 
 ## Installation
 
-### Manual Installation
-
-0. A Vim/MacVim/gVim with version higher than 7.3 should be installed on your computer;
-1. Get ivim from github website, `git clone git://github.com/kepbod/ivim.git $HOME/ivim`;
-2. Make symbolic links of vimrc to your home directory, `ln -s $HOME/ivim/vimrc $HOME/.vimrc`;
-3. Install NeoBundle to install and update plugins, `git clone git://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim`;
-4. Install plugins, `$HOME/.vim/bundle/neobundle.vim/bin/neoinstall > /dev/null 2>&1` for *nix or `$HOME/.vim/bundle/neobundle.vim/bin/neoinstall.bat` for windows;
-5. Just enjoy it!
-
-### Automatic Installation (*nix only)
-
-**via 'curl'**
+* [ivim](https://github.com/kepbod/ivim/blob/master/vimrc)
 
 ```bash
 bash <(curl -L https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh) -i
+# or
+bash <(wget --no-check-certificate https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh -O -) -i
 ```
 
-**via 'wget'**
+* [ivim_mini](https://github.com/kepbod/ivim/blob/master/vimrc_mini) for vim
 
 ```bash
-bash <(wget --no-check-certificate https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh -O -) -i
+bash <(curl -L https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh) -m
+# or
+bash <(wget --no-check-certificate https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh -O -) -m
+```
+
+* [ivim_mini](https://github.com/kepbod/ivim/blob/master/vimrc_mini) for neovim
+
+```bash
+bash <(curl -L https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh) -u
+# or
+bash <(wget --no-check-certificate https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh -O -) -u
 ```
 
 ## Updating
 
 ```bash
-bash $HOME/ivim/setup.sh -n
+bash $HOME/.ivim/setup.sh -n
 ```
 
 ## Configuration
 
-There are some options you could set through `.vimrc` to configure ivim:
-* g:ivim_user -- your username
-* g:ivim_email -- your email
-* g:ivim_github -- your github
-* g:ivim_default_scheme -- color settings (hybrid or gruvbox)
-* g:ivim_fancy_font -- using fancy font or not
-* g:ivim_show_number -- showing number or not
-* g:ivim_autocomplete -- autocomplete engine (NEO: neocomplete/neocomplcache/neosnippet, YCM: YouCompleteMe/UltiSnips)
-* g:ivim_bundle_groups -- plugin groups ('ui', 'enhance', 'move', 'navigate', 'complete', 'compile', 'git', 'language')
-
-###Note
-
-* This distribution is completely customisable using `~/.vimrc.ivim.local`(only for `vimrc`), `~/.vimrc.local`, `~/.gvimrc.local` and `~/.vimrc.bundles.local`!
+* This distribution is completely customisable using `~/.vimrc.ivim.local`, `~/.vimrc.local`, `~/.gvimrc.local` and `~/.vimrc.bundles.local`! (only for `vimrc`)
 * To make full use of auto-completion and syntax checking, please refer [wiki](https://github.com/kepbod/ivim/wiki/Auto-completion-and-syntax-checking).
+
+
+## Contributation
+
+Welcome to contribute to ivim, see [issue #31](https://github.com/kepbod/ivim/issues/31) for details. Thank you very much for your supporting!
 
 ## Vim Tips
 
@@ -143,4 +124,4 @@ There are some options you could set through `.vimrc` to configure ivim:
 
 ## License
 
-Copyright (C) 2012-2015 Xiao-Ou Zhang and contributors. See the [LICENSE](https://github.com/kepbod/ivim/blob/master/LICENSE.txt) file for license rights and limitations (MIT)
+Copyright (C) 2012-2016 Xiao-Ou Zhang. See the [LICENSE](https://github.com/kepbod/ivim/blob/master/LICENSE.txt) file for license rights and limitations (MIT).

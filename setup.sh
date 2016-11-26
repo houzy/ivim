@@ -2,9 +2,10 @@
 
 help() {
     echo "setup.sh -- setup ivim"
-    echo "Usage: setup.sh -i/-n"
+    echo "Usage: setup.sh -i|-m|-u|-n"
     echo "-i -- install ivim"
-    echo "-m -- install mini ivim"
+    echo "-m -- install ivim_mini for vim"
+    echo "-u -- install ivim_mini for neovim"
     echo "-n -- update ivim"
     exit 0
 }
@@ -34,34 +35,54 @@ logo() {
 
 require() {
     color_print "Checking requirements for ivim..."
-    color_print "Checking vim version..."
-    vim --version | grep 7.[3-9] || die "Your vim's version is too low!\nPlease download higher version(7.3+) from http://www.vim.org/download.php"
+    if [ $1 = 0 ]; then
+        color_print "Checking Vim version..."
+        vim --version | grep -E 7.[3-9]\|8.[0-9] || die "Your vim's version is too low!\nPlease download higher version(7.3+) from http://www.vim.org/download.php"
+    elif [ $1 = 1 ]; then
+        color_print "Checking Vim version..."
+        vim --version | grep -E 8.[0-9] || die "Your vim's version is too low!\nPlease download higher version(8.0+) from http://www.vim.org/download.php"
+    else
+        color_print "Checking NeoVim version..."
+        nvim --version || die "Please install NeoVim according to https://github.com/neovim/neovim/wiki/Installing-Neovim"
+    fi
     color_print "Checking if git exists..."
     which git || die "No git installed!\nPlease install git from http://git-scm.com/downloads/"
     color_print "Check if ctags exists..."
     which ctags || warn "No ctags installed!\nPlease install ctags form http://ctags.sourceforge.net/ after ivim intallation!"
 }
 
-backup() {
-    color_print "Backing up current vim config..."
-    for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && mv -f $i $i.backup; done
-}
-
 install() {
     color_print "Cloning ivim..."
-    rm -rf $HOME/ivim
-    git clone https://github.com/houzy/ivim.git $HOME/ivim
-    if [ $1 = 1 ]; then
-        ln -sf $HOME/ivim/vimrc $HOME/.vimrc
+    rm -rf $HOME/.ivim
+    git clone https://github.com/houzy/ivim.git $HOME/.ivim
+    if [ $1 = 0 ]; then
+        ln -s $HOME/.ivim/vimrc $HOME/.vimrc
+    elif [ $1 = 1 ]; then
+        ln -s $HOME/.ivim/vimrc_mini $HOME/.vimrc
     else
-        ln -sf $HOME/ivim/vimrc_mini $HOME/.vimrc
+        mkdir -p $HOME/.config/nvim
+        ln -s $HOME/.ivim/vimrc_mini $HOME/.config/nvim/init.vim
     fi
-    mkdir $HOME/ivim/.vim
-    ln -sf $HOME/ivim/.vim $HOME/.vim
-    color_print "Installing NeoBundle..."
-    git clone git://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
-    color_print "Installing plugins using NeoBundle..."
-    $HOME/.vim/bundle/neobundle.vim/bin/neoinstall > /dev/null 2>&1
+    color_print "Installing vim-plug..."
+    if [ $1 = 2 ]; then
+        curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    else
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
+    color_print "Installing colortheme..."
+    if [ $1 = 0 ]; then
+        git clone https://github.com/kristijanhusak/vim-hybrid-material.git $HOME/.vim/bundle/vim-hybrid-material
+    elif [ $1 = 1 ]; then
+        git clone https://github.com/jacoborus/tender.vim.git $HOME/.vim/plugged/tender.vim
+    else
+        git clone https://github.com/jacoborus/tender.vim.git $HOME/.config/nvim/plugged/tender.vim
+    fi
+    color_print "Installing plugins using vim-plug..."
+    if [ $1 = 2 ]; then
+        nvim +PlugUpdate +qal
+    else
+        vim +PlugUpdate +qal
+    fi
     color_print "ivim has been installed. Just enjoy vimming!"
 }
 
@@ -69,26 +90,34 @@ update() {
     color_print "updating ivim..."
     git pull origin master
     color_print "updating plugins..."
-    $HOME/.vim/bundle/neobundle.vim/bin/neoinstall > /dev/null 2>&1
+    if [ -e $HOME/.config/nvim/init.vim ]; then
+        nvim +PlugUpdate +qal
+    fi
+    if [ -e $HOME/.vimrc ]; then
+        vim +PlugUpdate +qal
+    fi
 }
 
 if [ $# -ne 1 ]; then
     help
 fi
 
-while getopts ":imn" opts; do
+while getopts ":imun" opts; do
     case $opts in
         i)
             logo
-            require
-            backup
-            install 1
+            require 0
+            install 0
             ;;
         m)
             logo
-            require
-            backup
-            install 0
+            require 1
+            install 1
+            ;;
+        u)
+            logo
+            require 2
+            install 2
             ;;
         n)
             update
