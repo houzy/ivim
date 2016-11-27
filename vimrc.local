@@ -473,13 +473,6 @@ let g:snips_company=''
 " Press t to toggle RGB text visibility
 " Press f to set RGB text to current color
 
-" Unite.vim
-" unite#custom#default_action({kind}, {default-action})
-" Changes the default action of {kind} into {default-action}.
-" You may specify multiple {kind} with the separator ",".
-" Open file in new tab, instead of in new buffer.
-call unite#custom#default_action('file', 'tabopen')
-
 " jeffy-plugins
 let g:jeffy_plugins_enable_colors = 0
 
