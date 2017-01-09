@@ -1,21 +1,19 @@
-#!/usr/bin/env python
+# Copyright (C) 2014 Google Inc.
 #
-# Copyright (C) 2014  Google Inc.
+# This file is part of ycmd.
 #
-# This file is part of YouCompleteMe.
-#
-# YouCompleteMe is free software: you can redistribute it and/or modify
+# ycmd is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# YouCompleteMe is distributed in the hope that it will be useful,
+# ycmd is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+# along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
 import ycm_core
@@ -51,7 +49,9 @@ flags = [
 '-isystem',
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
 '-I',
-'.',
+'./customInclude',
+'-ISUB./customPath',
+'-I.',
 ]
 
 
@@ -73,10 +73,51 @@ SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 def DirectoryOfThisScript():
   return os.path.dirname( os.path.abspath( __file__ ) )
 
+def Subdirectories(directory):
+  res = []
+  for path, subdirs, files in os.walk(directory):
+    for name in subdirs:
+      item = os.path.join(path, name)
+      res.append(item)
+  return res
+
+def IncludeFlagsOfSubdirectory( flags, working_directory ):
+  if not working_directory:
+    return list( flags )
+  new_flags = []
+  make_next_include_subdir = False
+  path_flags = ['-ISUB']
+  for flag in flags:
+    # include the directory of flag as well
+    new_flag = [flag.replace('-ISUB', '-I')]
+
+    if make_next_include_subdir:
+      make_next_include_subdir = False
+      for subdir in Subdirectories(os.path.join(working_directory, flag)):
+        new_flag.append('-I')
+        new_flag.append(subdir)
+
+    for path_flag in path_flags:
+      if flag == path_flag:
+        make_next_include_subdir = True
+        break
+
+      if flag.startswith( path_flag ):
+        path = flag[ len( path_flag ): ]
+        for subdir in Subdirectories(os.path.join(working_directory, path)):
+            new_flag.append('-I' + subdir)
+        break
+
+    new_flags =new_flags + new_flag
+  return new_flags
 
 def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
   if not working_directory:
     return list( flags )
+  #print(flags)
+  #add include subfolders as well
+  flags = IncludeFlagsOfSubdirectory( flags, working_directory )
+  #print(flags)
   new_flags = []
   make_next_absolute = False
   path_flags = [ '-isystem', '-I', '-iquote', '--sysroot=' ]
@@ -100,6 +141,7 @@ def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
 
     if new_flag:
       new_flags.append( new_flag )
+  print(new_flags)
   return new_flags
 
 
@@ -143,8 +185,4 @@ def FlagsForFile( filename, **kwargs ):
     relative_to = DirectoryOfThisScript()
     final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
 
-  return {
-    'flags': final_flags,
-    'do_cache': True
-  }
-
+  return { 'flags': final_flags }
