@@ -7,7 +7,7 @@
 "   Main Contributor: Xiao-Ou Zhang (kepbod) <kepbod@gmail.com>
 "   Version: 3.0
 "   Created: 2012-01-20
-"   Last Modified: 2016-11-03
+"   Last Modified: 2016-12-29
 "
 "   Sections:
 "     -> ivim Setting
@@ -160,6 +160,7 @@ if count(g:ivim_bundle_groups, 'enhance') " Vim enhancement
     Plug 'tpope/vim-speeddating' " Speed dating
     Plug 'tpope/vim-repeat' " Repeat
     Plug 'terryma/vim-multiple-cursors' " Multiple cursors
+    Plug 'junegunn/vim-slash' " In-buffer search
     Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' } " Undo tree
     Plug 'tpope/vim-surround' " Surround
     Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Easy align
@@ -176,7 +177,8 @@ endif
 if count(g:ivim_bundle_groups, 'move') " Moving
     Plug 'tpope/vim-unimpaired' " Pairs of mappings
     Plug 'Lokaltog/vim-easymotion' " Easy motion
-    Plug 'unblevable/quick-scope' " Quick scope
+    Plug 'kepbod/quick-scope' " Quick scope
+    Plug 'yuttie/comfortable-motion.vim' " Comfortable motion
     Plug 'bkad/CamelCaseMotion' " Camel case motion
     Plug 'majutsushi/tagbar' " Tag bar
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  } " Fuzzy finder
@@ -218,7 +220,7 @@ endif
 
 if count(g:ivim_bundle_groups, 'git') " Git
     Plug 'tpope/vim-fugitive' " Git wrapper
-    Plug 'gregsexton/gitv' " Gitk clone
+    Plug 'junegunn/gv.vim' " Gitk clone
     if has('signs')
         Plug 'airblade/vim-gitgutter' " Git diff sign
     endif
@@ -447,24 +449,6 @@ cnoremap s/ s/\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 cnoremap s? s?\v
-
-" Keep search matches in the middle of the window
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap * *zzzv
-nnoremap # #zzzv
-nnoremap g* g*zzzv
-nnoremap g# g#zzzv
-
-" Visual search mappings
-function! s:VSetSearch()
-    let temp=@@
-    normal! gvy
-    let @/='\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-    let @@=temp
-endfunction
-vnoremap * :<C-U>call <SID>VSetSearch()<CR>//<CR>
-vnoremap # :<C-U>call <SID>VSetSearch()<CR>??<CR>
 
 " Use ,Space to toggle the highlight search
 nnoremap <Leader><Space> :set hlsearch!<CR>
@@ -798,6 +782,9 @@ if count(g:ivim_bundle_groups, 'language')
     let g:user_emmet_leader_key='<C-Z>'
     let g:user_emmet_settings={'indentation':'    '}
     let g:use_emmet_complete_tag=1
+
+    " -> Polyglot
+    let g:vim_markdown_conceal=0
 
 endif
 

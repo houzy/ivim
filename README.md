@@ -10,10 +10,10 @@
 
 **Version: 3.0**
 
-After 4 years' development, ivim contains 3 versions to satisfy different requirements.
+After about 5 years' development, ivim contains 2 versions to satisfy different requirements.
 
 * [ivim](https://github.com/kepbod/ivim/blob/master/vimrc): highly customizable vim configuration, and it has more [colorschemes](https://github.com/kepbod/ivim/wiki/Colorscheme) and [settings](https://github.com/kepbod/ivim/wiki/Customization).
-* [ivim_mini](https://github.com/kepbod/ivim/blob/master/vimrc_mini): vim configuration with fast startup time and convenient usage, compatible with Vim 8.0 and NeoVim.
+* [ivim_mini](https://github.com/kepbod/ivim/blob/master/vimrc_mini): vim configuration with fast startup time and convenient usage, compatible with Vim 8.0+ and NeoVim.
 
 If you love ivim, welcome to [buy me a cup of coffee :coffee:](https://www.paypal.me/kepbod). Thx!!!
 
@@ -23,7 +23,17 @@ If you love ivim, welcome to [buy me a cup of coffee :coffee:](https://www.paypa
 
 Use lots of famous colorschemes to make your eyes feel comfortable in both Vim and NeoVim.
 
+* ivim 
+
 ![ivim](https://raw.githubusercontent.com/kepbod/ivim/master/snapshot/ivim.jpeg)
+
+Colorscheme: [Hybrid](https://github.com/kristijanhusak/vim-hybrid-material)
+
+* ivim_mini
+
+![ivim_mini](https://raw.githubusercontent.com/kepbod/ivim/master/snapshot/ivim_mini.jpeg)
+
+Colorscheme: [Nord](https://github.com/arcticicestudio/nord-vim)
 
 **You could install the patched font from [vim-devicons](https://github.com/ryanoasis/vim-devicons).**
 
@@ -31,7 +41,7 @@ Use lots of famous colorschemes to make your eyes feel comfortable in both Vim a
 
  * Make using Vim more convenient and faster, and lots of useful plugins confirm a better performance of Vim.
 
- * To view the full plugin list, please refer [here](https://github.com/kepbod/ivim/blob/master/vimrc#L133).
+ * To view the full plugin list, please refer [here](https://github.com/kepbod/ivim/blob/master/vimrc#L132).
 
 ## Requirements
 
@@ -124,4 +134,4 @@ Welcome to contribute to ivim, see [issue #31](https://github.com/kepbod/ivim/is
 
 ## License
 
-Copyright (C) 2012-2016 Xiao-Ou Zhang. See the [LICENSE](https://github.com/kepbod/ivim/blob/master/LICENSE.txt) file for license rights and limitations (MIT).
+Copyright (C) 2012-2017 Xiao-Ou Zhang. See the [LICENSE](https://github.com/kepbod/ivim/blob/master/LICENSE.txt) file for license rights and limitations (MIT).

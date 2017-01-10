@@ -9,7 +9,7 @@
 "   Main Contributor: Xiao-Ou Zhang (kepbod) <kepbod@gmail.com>
 "   Version: 3.0
 "   Created: 2015-09-24
-"   Last Modified: 2016-11-06
+"   Last Modified: 2016-12-29
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -104,7 +104,7 @@ endif
 
 
 " Install plugins
-Plug 'kristijanhusak/vim-hybrid-material' " Colorscheme hybrid material
+Plug 'arcticicestudio/nord-vim' " Colorscheme Nord
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes' " Status line
 Plug 'Yggdroot/indentLine' " Indentation level
 Plug 'ryanoasis/vim-devicons' " Devicons
@@ -112,6 +112,7 @@ Plug 'bling/vim-bufferline' " Buffer line
 Plug 'mhinz/vim-startify' " Start page
 Plug 'Raimondi/delimitMate' " Closing of quotes
 Plug 'tomtom/tcomment_vim' " Commenter
+Plug 'junegunn/vim-slash' " In-buffer search
 Plug 'terryma/vim-multiple-cursors' " Multiple cursors
 Plug 'tpope/vim-surround' " Surround
 Plug 'tpope/vim-repeat' " Repeat
@@ -124,7 +125,8 @@ Plug 'wellle/targets.vim' " Text objects
 Plug 'roman/golden-ratio' " Resize windows
 Plug 'chrisbra/vim-diff-enhanced' " Create better diffs
 Plug 'tpope/vim-unimpaired' " Pairs of mappings
-Plug 'unblevable/quick-scope' " Quick scope
+Plug 'kepbod/quick-scope' " Quick scope
+Plug 'yuttie/comfortable-motion.vim' " Comfortable motion
 Plug 'bkad/CamelCaseMotion' " Camel case motion
 Plug 'majutsushi/tagbar' " Tag bar
 Plug 'ludovicchabant/vim-gutentags' " Manage tag files
@@ -147,8 +149,8 @@ Plug 'Shougo/neosnippet.vim' " Snippet engine
 Plug 'Shougo/neosnippet-snippets' " Snippets
 Plug 'w0rp/ale' " Lint engine
 Plug 'tpope/vim-fugitive' " Git wrapper
-Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries' } " Vim go
 Plug 'airblade/vim-gitgutter' " Git diff sign
+Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries' } " Vim go
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] } " Emmet
 Plug 'wellle/tmux-complete.vim' " Completion for tmux panes
 Plug 'sheerun/vim-polyglot' " Language Support
@@ -164,7 +166,7 @@ call plug#end()
 " Set status line
 set laststatus=2 " Show the statusline
 set noshowmode " Hide the default mode text
-let g:airline_theme='bubblegum'
+let g:airline_theme='nord'
 set ttimeoutlen=50
 let g:bufferline_echo=0
 let g:bufferline_modified='[+]'
@@ -231,7 +233,7 @@ set background=dark " Set background
 set t_Co=256 " Use 256 colors
 
 " Load a colorscheme
-colorscheme hybrid_reverse
+colorscheme nord
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -265,24 +267,6 @@ cnoremap s/ s/\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 cnoremap s? s?\v
-
-" Keep search matches in the middle of the window
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap * *zzzv
-nnoremap # #zzzv
-nnoremap g* g*zzzv
-nnoremap g# g#zzzv
-
-" Visual search mappings
-function! s:VSetSearch()
-    let temp=@@
-    normal! gvy
-    let @/='\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-    let @@=temp
-endfunction
-vnoremap * :<C-U>call <SID>VSetSearch()<CR>//<CR>
-vnoremap # :<C-U>call <SID>VSetSearch()<CR>??<CR>
 
 " Use ,Space to toggle the highlight search
 nnoremap <Leader><Space> :set hlsearch!<CR>
